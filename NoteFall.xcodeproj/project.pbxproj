@@ -1,0 +1,503 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C204582F23D8C10D00C1E82A /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204582E23D8C10D00C1E82A /* GameManager.swift */; };
+		C20D1BC423ABF74800C994E8 /* WelcomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D1BC323ABF74800C994E8 /* WelcomeScene.swift */; };
+		C210C74323A2BC9800412FD4 /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = C210C74123A2BC9800412FD4 /* explosion.sks */; };
+		C210C74423A2BC9800412FD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C210C74223A2BC9800412FD4 /* Assets.xcassets */; };
+		C222B84523EC23DE00653CE1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C222B84423EC23DE00653CE1 /* .gitignore */; };
+		C223B4D923A001D6009ADD1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223B4D823A001D6009ADD1F /* AppDelegate.swift */; };
+		C223B4DB23A001D6009ADD1F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C223B4DA23A001D6009ADD1F /* GameScene.sks */; };
+		C223B4DF23A001D6009ADD1F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223B4DE23A001D6009ADD1F /* GameScene.swift */; };
+		C223B4E123A001D6009ADD1F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223B4E023A001D6009ADD1F /* GameViewController.swift */; };
+		C223B4E423A001D6009ADD1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C223B4E223A001D6009ADD1F /* Main.storyboard */; };
+		C223B4E623A001D8009ADD1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C223B4E523A001D8009ADD1F /* Assets.xcassets */; };
+		C223B4E923A001D8009ADD1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C223B4E723A001D8009ADD1F /* LaunchScreen.storyboard */; };
+		C223B4F123A00C70009ADD1F /* MicrophoneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223B4F023A00C70009ADD1F /* MicrophoneManager.swift */; };
+		C223B4F323A01B6B009ADD1F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223B4F223A01B6B009ADD1F /* Helpers.swift */; };
+		C25972E223A14BA100A7AB0D /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25972E123A14BA100A7AB0D /* GameOverScene.swift */; };
+		C2838CB123A91D440014FE0C /* ScoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2838CB023A91D440014FE0C /* ScoreLabel.swift */; };
+		C2A7638B23B967F9009DEA2D /* WelcomeScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2A7638A23B967F9009DEA2D /* WelcomeScene.sks */; };
+		C2A7638D23B9F388009DEA2D /* SettingsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2A7638C23B9F388009DEA2D /* SettingsScene.sks */; };
+		C2B9DB5A23D97C69005B5868 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2B9DB5923D97C69005B5868 /* GameOverScene.sks */; };
+		C2D8883323DC5FA500E09433 /* SettingsSceneNotch.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2D8883223DC5FA500E09433 /* SettingsSceneNotch.sks */; };
+		C2D8883523DC644C00E09433 /* SettingsScenePad.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2D8883423DC644C00E09433 /* SettingsScenePad.sks */; };
+		C2D8883723DC959600E09433 /* GameOverSceneNotch.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2D8883623DC959500E09433 /* GameOverSceneNotch.sks */; };
+		C2D8883923DC967100E09433 /* GameOverScenePad.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2D8883823DC967100E09433 /* GameOverScenePad.sks */; };
+		C2F1153023B9F5B800F520AB /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F1152F23B9F5B800F520AB /* SettingsScene.swift */; };
+		FC10482C4D29CFD069A510E6 /* Pods_NoteFall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83D0E79CB6B14E1C899F062 /* Pods_NoteFall.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		27E54FC42D6BCFE40AC2FFDC /* Pods-NoteFall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteFall.release.xcconfig"; path = "Target Support Files/Pods-NoteFall/Pods-NoteFall.release.xcconfig"; sourceTree = "<group>"; };
+		C204582E23D8C10D00C1E82A /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		C20D1BC323ABF74800C994E8 /* WelcomeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScene.swift; sourceTree = "<group>"; };
+		C210C74123A2BC9800412FD4 /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explosion.sks; sourceTree = "<group>"; };
+		C210C74223A2BC9800412FD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C222B84423EC23DE00653CE1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C223B4D523A001D6009ADD1F /* NoteFall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteFall.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C223B4D823A001D6009ADD1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C223B4DA23A001D6009ADD1F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		C223B4DE23A001D6009ADD1F /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		C223B4E023A001D6009ADD1F /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		C223B4E323A001D6009ADD1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C223B4E523A001D8009ADD1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C223B4E823A001D8009ADD1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C223B4EA23A001D8009ADD1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C223B4F023A00C70009ADD1F /* MicrophoneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneManager.swift; sourceTree = "<group>"; };
+		C223B4F223A01B6B009ADD1F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		C25972E123A14BA100A7AB0D /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		C2838CB023A91D440014FE0C /* ScoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreLabel.swift; sourceTree = "<group>"; };
+		C2A7638A23B967F9009DEA2D /* WelcomeScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WelcomeScene.sks; sourceTree = "<group>"; };
+		C2A7638C23B9F388009DEA2D /* SettingsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SettingsScene.sks; sourceTree = "<group>"; };
+		C2B9DB5923D97C69005B5868 /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
+		C2D8883223DC5FA500E09433 /* SettingsSceneNotch.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SettingsSceneNotch.sks; sourceTree = "<group>"; };
+		C2D8883423DC644C00E09433 /* SettingsScenePad.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SettingsScenePad.sks; sourceTree = "<group>"; };
+		C2D8883623DC959500E09433 /* GameOverSceneNotch.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverSceneNotch.sks; sourceTree = "<group>"; };
+		C2D8883823DC967100E09433 /* GameOverScenePad.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScenePad.sks; sourceTree = "<group>"; };
+		C2F1152F23B9F5B800F520AB /* SettingsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
+		D83D0E79CB6B14E1C899F062 /* Pods_NoteFall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoteFall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F40C0645297AB80E343ADC84 /* Pods-NoteFall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteFall.debug.xcconfig"; path = "Target Support Files/Pods-NoteFall/Pods-NoteFall.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C223B4D223A001D6009ADD1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC10482C4D29CFD069A510E6 /* Pods_NoteFall.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		94A63942641468ABF223887E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D83D0E79CB6B14E1C899F062 /* Pods_NoteFall.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B341D06D91722C9062BCBF83 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F40C0645297AB80E343ADC84 /* Pods-NoteFall.debug.xcconfig */,
+				27E54FC42D6BCFE40AC2FFDC /* Pods-NoteFall.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C20D1BC523ABF77700C994E8 /* WelcomeScene */ = {
+			isa = PBXGroup;
+			children = (
+				C2A7638A23B967F9009DEA2D /* WelcomeScene.sks */,
+				C20D1BC323ABF74800C994E8 /* WelcomeScene.swift */,
+			);
+			path = WelcomeScene;
+			sourceTree = "<group>";
+		};
+		C223B4CC23A001D6009ADD1F = {
+			isa = PBXGroup;
+			children = (
+				C222B84423EC23DE00653CE1 /* .gitignore */,
+				C223B4D723A001D6009ADD1F /* NoteFall */,
+				C223B4D623A001D6009ADD1F /* Products */,
+				B341D06D91722C9062BCBF83 /* Pods */,
+				94A63942641468ABF223887E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C223B4D623A001D6009ADD1F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C223B4D523A001D6009ADD1F /* NoteFall.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C223B4D723A001D6009ADD1F /* NoteFall */ = {
+			isa = PBXGroup;
+			children = (
+				C223B4D823A001D6009ADD1F /* AppDelegate.swift */,
+				C20D1BC523ABF77700C994E8 /* WelcomeScene */,
+				C25972E323A14D7A00A7AB0D /* GameScene */,
+				C25972E423A14D8100A7AB0D /* GameOverScene */,
+				C2A7638E23B9F39A009DEA2D /* SettingsScene */,
+				C223B4F223A01B6B009ADD1F /* Helpers.swift */,
+				C2838CB023A91D440014FE0C /* ScoreLabel.swift */,
+				C223B4F023A00C70009ADD1F /* MicrophoneManager.swift */,
+				C223B4E023A001D6009ADD1F /* GameViewController.swift */,
+				C204582E23D8C10D00C1E82A /* GameManager.swift */,
+				C223B4E223A001D6009ADD1F /* Main.storyboard */,
+				C223B4E523A001D8009ADD1F /* Assets.xcassets */,
+				C223B4E723A001D8009ADD1F /* LaunchScreen.storyboard */,
+				C223B4EA23A001D8009ADD1F /* Info.plist */,
+			);
+			path = NoteFall;
+			sourceTree = "<group>";
+		};
+		C25972E323A14D7A00A7AB0D /* GameScene */ = {
+			isa = PBXGroup;
+			children = (
+				C223B4DA23A001D6009ADD1F /* GameScene.sks */,
+				C223B4DE23A001D6009ADD1F /* GameScene.swift */,
+				C210C74123A2BC9800412FD4 /* explosion.sks */,
+				C210C74223A2BC9800412FD4 /* Assets.xcassets */,
+			);
+			path = GameScene;
+			sourceTree = "<group>";
+		};
+		C25972E423A14D8100A7AB0D /* GameOverScene */ = {
+			isa = PBXGroup;
+			children = (
+				C2B9DB5923D97C69005B5868 /* GameOverScene.sks */,
+				C2D8883623DC959500E09433 /* GameOverSceneNotch.sks */,
+				C2D8883823DC967100E09433 /* GameOverScenePad.sks */,
+				C25972E123A14BA100A7AB0D /* GameOverScene.swift */,
+			);
+			path = GameOverScene;
+			sourceTree = "<group>";
+		};
+		C2A7638E23B9F39A009DEA2D /* SettingsScene */ = {
+			isa = PBXGroup;
+			children = (
+				C2A7638C23B9F388009DEA2D /* SettingsScene.sks */,
+				C2D8883223DC5FA500E09433 /* SettingsSceneNotch.sks */,
+				C2D8883423DC644C00E09433 /* SettingsScenePad.sks */,
+				C2F1152F23B9F5B800F520AB /* SettingsScene.swift */,
+			);
+			path = SettingsScene;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C223B4D423A001D6009ADD1F /* NoteFall */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C223B4ED23A001D8009ADD1F /* Build configuration list for PBXNativeTarget "NoteFall" */;
+			buildPhases = (
+				3761EBEF8981EDB32C66A43A /* [CP] Check Pods Manifest.lock */,
+				C223B4D123A001D6009ADD1F /* Sources */,
+				C223B4D223A001D6009ADD1F /* Frameworks */,
+				C223B4D323A001D6009ADD1F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NoteFall;
+			productName = NoteFall;
+			productReference = C223B4D523A001D6009ADD1F /* NoteFall.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C223B4CD23A001D6009ADD1F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Thomas Swatland";
+				TargetAttributes = {
+					C223B4D423A001D6009ADD1F = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = C223B4D023A001D6009ADD1F /* Build configuration list for PBXProject "NoteFall" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C223B4CC23A001D6009ADD1F;
+			productRefGroup = C223B4D623A001D6009ADD1F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C223B4D423A001D6009ADD1F /* NoteFall */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C223B4D323A001D6009ADD1F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2D8883323DC5FA500E09433 /* SettingsSceneNotch.sks in Resources */,
+				C223B4E423A001D6009ADD1F /* Main.storyboard in Resources */,
+				C2D8883523DC644C00E09433 /* SettingsScenePad.sks in Resources */,
+				C210C74323A2BC9800412FD4 /* explosion.sks in Resources */,
+				C223B4DB23A001D6009ADD1F /* GameScene.sks in Resources */,
+				C2D8883723DC959600E09433 /* GameOverSceneNotch.sks in Resources */,
+				C2A7638B23B967F9009DEA2D /* WelcomeScene.sks in Resources */,
+				C223B4E623A001D8009ADD1F /* Assets.xcassets in Resources */,
+				C222B84523EC23DE00653CE1 /* .gitignore in Resources */,
+				C210C74423A2BC9800412FD4 /* Assets.xcassets in Resources */,
+				C223B4E923A001D8009ADD1F /* LaunchScreen.storyboard in Resources */,
+				C2B9DB5A23D97C69005B5868 /* GameOverScene.sks in Resources */,
+				C2A7638D23B9F388009DEA2D /* SettingsScene.sks in Resources */,
+				C2D8883923DC967100E09433 /* GameOverScenePad.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3761EBEF8981EDB32C66A43A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NoteFall-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C223B4D123A001D6009ADD1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C223B4DF23A001D6009ADD1F /* GameScene.swift in Sources */,
+				C223B4F123A00C70009ADD1F /* MicrophoneManager.swift in Sources */,
+				C223B4E123A001D6009ADD1F /* GameViewController.swift in Sources */,
+				C223B4F323A01B6B009ADD1F /* Helpers.swift in Sources */,
+				C2838CB123A91D440014FE0C /* ScoreLabel.swift in Sources */,
+				C25972E223A14BA100A7AB0D /* GameOverScene.swift in Sources */,
+				C2F1153023B9F5B800F520AB /* SettingsScene.swift in Sources */,
+				C223B4D923A001D6009ADD1F /* AppDelegate.swift in Sources */,
+				C20D1BC423ABF74800C994E8 /* WelcomeScene.swift in Sources */,
+				C204582F23D8C10D00C1E82A /* GameManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C223B4E223A001D6009ADD1F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C223B4E323A001D6009ADD1F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C223B4E723A001D8009ADD1F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C223B4E823A001D8009ADD1F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C223B4EB23A001D8009ADD1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C223B4EC23A001D8009ADD1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C223B4EE23A001D8009ADD1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F40C0645297AB80E343ADC84 /* Pods-NoteFall.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5PY55DGNG5;
+				INFOPLIST_FILE = NoteFall/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thomasswatland.NoteFall;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C223B4EF23A001D8009ADD1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27E54FC42D6BCFE40AC2FFDC /* Pods-NoteFall.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5PY55DGNG5;
+				INFOPLIST_FILE = NoteFall/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thomasswatland.NoteFall;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C223B4D023A001D6009ADD1F /* Build configuration list for PBXProject "NoteFall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C223B4EB23A001D8009ADD1F /* Debug */,
+				C223B4EC23A001D8009ADD1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C223B4ED23A001D8009ADD1F /* Build configuration list for PBXNativeTarget "NoteFall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C223B4EE23A001D8009ADD1F /* Debug */,
+				C223B4EF23A001D8009ADD1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C223B4CD23A001D6009ADD1F /* Project object */;
+}

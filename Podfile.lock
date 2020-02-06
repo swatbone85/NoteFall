@@ -1,0 +1,16 @@
+PODS:
+  - AudioKit/Core (4.9.3)
+
+DEPENDENCIES:
+  - AudioKit/Core
+
+SPEC REPOS:
+  trunk:
+    - AudioKit
+
+SPEC CHECKSUMS:
+  AudioKit: d025ecbb68f567bba15dab7ea80b8991155729f9
+
+PODFILE CHECKSUM: fba1d7d4d4f5ff2e53d9823e0aafb04b2330d1cc
+
+COCOAPODS: 1.8.3
