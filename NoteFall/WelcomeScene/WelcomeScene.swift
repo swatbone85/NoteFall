@@ -5,6 +5,7 @@ class WelcomeScene: SKScene {
     fileprivate var titleLabel: SKLabelNode!
     fileprivate var startButton: SKSpriteNode!
     fileprivate var settingsButton: SKSpriteNode!
+    fileprivate var backgroundNode: SKSpriteNode!
     
     fileprivate var settingsScene: SKScene!
     
@@ -18,6 +19,9 @@ class WelcomeScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        
+        backgroundNode = childNode(withName: "Background") as? SKSpriteNode
+        backgroundNode.zPosition = Layer.background
         
         titleLabel = childNode(withName: "TitleLabel") as? SKLabelNode
         startButton = childNode(withName: "StartGameButton") as? SKSpriteNode
@@ -42,16 +46,13 @@ class WelcomeScene: SKScene {
     }
     
     fileprivate func showSettings() {
-        print(screenAspectRatio)
         
-        if UIDevice.current.userInterfaceIdiom == .pad {
+        if Device.isIpad {
             settingsScene = SettingsScene(fileNamed: "SettingsScenePad.sks")
+        } else if Device.hasNotch {
+            settingsScene = SettingsScene(fileNamed: "SettingsSceneNotch.sks")
         } else {
-            if screenAspectRatio < 2.17 && screenAspectRatio > 2.16 {
-                settingsScene = SettingsScene(fileNamed: "SettingsSceneNotch.sks")
-            } else {
-                settingsScene = SettingsScene(fileNamed: "SettingsScene.sks")
-            }
+            settingsScene = SettingsScene(fileNamed: "SettingsScene.sks")
         }
         
         settingsScene.scaleMode = .aspectFill

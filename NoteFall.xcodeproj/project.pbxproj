@@ -12,6 +12,7 @@
 		C210C74323A2BC9800412FD4 /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = C210C74123A2BC9800412FD4 /* explosion.sks */; };
 		C210C74423A2BC9800412FD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C210C74223A2BC9800412FD4 /* Assets.xcassets */; };
 		C222B84523EC23DE00653CE1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C222B84423EC23DE00653CE1 /* .gitignore */; };
+		C222B84723ED494000653CE1 /* WelcomeSceneNotch.sks in Resources */ = {isa = PBXBuildFile; fileRef = C222B84623ED494000653CE1 /* WelcomeSceneNotch.sks */; };
 		C223B4D923A001D6009ADD1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223B4D823A001D6009ADD1F /* AppDelegate.swift */; };
 		C223B4DB23A001D6009ADD1F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C223B4DA23A001D6009ADD1F /* GameScene.sks */; };
 		C223B4DF23A001D6009ADD1F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223B4DE23A001D6009ADD1F /* GameScene.swift */; };
@@ -41,6 +42,7 @@
 		C210C74123A2BC9800412FD4 /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explosion.sks; sourceTree = "<group>"; };
 		C210C74223A2BC9800412FD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C222B84423EC23DE00653CE1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C222B84623ED494000653CE1 /* WelcomeSceneNotch.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WelcomeSceneNotch.sks; sourceTree = "<group>"; };
 		C223B4D523A001D6009ADD1F /* NoteFall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteFall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C223B4D823A001D6009ADD1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C223B4DA23A001D6009ADD1F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				C2A7638A23B967F9009DEA2D /* WelcomeScene.sks */,
+				C222B84623ED494000653CE1 /* WelcomeSceneNotch.sks */,
 				C20D1BC323ABF74800C994E8 /* WelcomeScene.swift */,
 			);
 			path = WelcomeScene;
@@ -243,6 +246,7 @@
 				C223B4DB23A001D6009ADD1F /* GameScene.sks in Resources */,
 				C2D8883723DC959600E09433 /* GameOverSceneNotch.sks in Resources */,
 				C2A7638B23B967F9009DEA2D /* WelcomeScene.sks in Resources */,
+				C222B84723ED494000653CE1 /* WelcomeSceneNotch.sks in Resources */,
 				C223B4E623A001D8009ADD1F /* Assets.xcassets in Resources */,
 				C222B84523EC23DE00653CE1 /* .gitignore in Resources */,
 				C210C74423A2BC9800412FD4 /* Assets.xcassets in Resources */,

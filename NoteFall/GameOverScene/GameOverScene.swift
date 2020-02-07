@@ -7,6 +7,7 @@ class GameOverScene: SKScene {
     
     private var tryAgainLabel: SKSpriteNode!
     private var backToMenuLabel: SKSpriteNode!
+    private var backgroundNode: SKSpriteNode!
     
     var score = 0
     
@@ -25,6 +26,9 @@ class GameOverScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        
+        backgroundNode = childNode(withName: "Background") as? SKSpriteNode
+        backgroundNode.zPosition = Layer.background
         
         scoreLabel = childNode(withName: "ScoreLabel") as? SKLabelNode
         scoreLabel.text = String(score)

@@ -1,6 +1,5 @@
 import SpriteKit
 import GameplayKit
-import UIKit
 
 class GameScene: SKScene {
     
@@ -208,15 +207,14 @@ class GameScene: SKScene {
         
         createHapticFeedback(style: .heavy)
         
-        if UIDevice.current.userInterfaceIdiom == .pad {
+        if Device.isIpad {
             gameOverScene = GameOverScene(fileNamed: "GameOverScenePad.sks")
+        } else if Device.hasNotch {
+            gameOverScene = GameOverScene(fileNamed: "GameOverSceneNotch.sks")
         } else {
-            if screenAspectRatio < 2.17 && screenAspectRatio > 2.16 {
-                gameOverScene = GameOverScene(fileNamed: "GameOverSceneNotch.sks")
-            } else {
-                gameOverScene = GameOverScene(fileNamed: "GameOverScene.sks")
-            }
+            gameOverScene = GameOverScene(fileNamed: "GameOverScene.sks")
         }
+        
         gameOverScene.score = score
         gameOverScene.scaleMode = .aspectFill
         view?.presentScene(gameOverScene)

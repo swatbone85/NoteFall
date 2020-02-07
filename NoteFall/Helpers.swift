@@ -3,8 +3,6 @@ import UIKit
 
 let octaves:[Double] = [1, 2, 4, 8]
 
-//let screenAspectRatio = UIScreen.main.bounds.height / UIScreen.main.bounds.width
-
 struct Note {
     let name: String
     let frequency: Double
@@ -42,8 +40,17 @@ enum Transposition: String {
 }
 
 struct Device {
+    
     static var hasNotch: Bool {
         let screenAspectRatio = UIScreen.main.bounds.height / UIScreen.main.bounds.width
         return screenAspectRatio < 2.17 && screenAspectRatio > 2.16
     }
+    
+    static var isIpad: Bool {
+        return UIDevice.current.userInterfaceIdiom == .pad
+    }
+}
+
+struct Layer {
+    static let background: CGFloat = -1
 }

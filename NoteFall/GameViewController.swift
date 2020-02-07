@@ -11,16 +11,25 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
+    
+    fileprivate var welcomeScene: SKScene!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let view = self.view as! SKView? {
-            let scene = WelcomeScene(fileNamed: "WelcomeScene.sks")!
-            scene.scaleMode = .resizeFill
+            
+            if Device.isIpad {
+                welcomeScene = WelcomeScene(fileNamed: "WelcomeScenePad.sks")!
+            } else if Device.hasNotch {
+                welcomeScene = WelcomeScene(fileNamed: "WelcomeSceneNotch.sks")!
+            } else {
+                welcomeScene = WelcomeScene(fileNamed: "WelcomeScene.sks")!
+            }
+            welcomeScene.scaleMode = .aspectFill
             
             // Present the scene
-            view.presentScene(scene)
+            view.presentScene(welcomeScene)
             
             
             view.ignoresSiblingOrder = true

@@ -5,14 +5,20 @@ class SettingsScene: SKScene {
     fileprivate var backButton: SKSpriteNode!
     fileprivate var transpositionLabel: SKLabelNode!
     fileprivate var accidentalsLabel: SKLabelNode!
+    fileprivate var backgroundNode: SKSpriteNode!
     
     fileprivate let gameManager = GameManager.shared
     
     fileprivate var transposition: Transposition!
     
+    fileprivate var welcomeScene: SKScene!
+    
     override func didMove(to view: SKView) {
         
         transposition = Transposition(rawValue: gameManager.transposition)
+        
+        backgroundNode = childNode(withName: "Background") as? SKSpriteNode
+        backgroundNode.zPosition = Layer.background
         
         backButton = childNode(withName: "BackToMenuButton") as? SKSpriteNode
         
@@ -44,8 +50,15 @@ class SettingsScene: SKScene {
     fileprivate func goBackToMenu() {
         saveSettings()
         
-        let welcomeScene = WelcomeScene(fileNamed: "WelcomeScene.sks")
-        welcomeScene?.scaleMode = .resizeFill
+        if Device.isIpad {
+            //TODO: - Add WelcomeScenePad.sks
+//            welcomeScene = WelcomeScene(fileNamed: "WelcomeScenePad.sks")
+        } else if Device.hasNotch {
+            welcomeScene = WelcomeScene(fileNamed: "WelcomeSceneNotch.sks")
+        } else {
+            welcomeScene = WelcomeScene(fileNamed: "WelcomeScene.sks")
+        }
+        welcomeScene?.scaleMode = .aspectFill
         view?.presentScene(welcomeScene)
     }
     
