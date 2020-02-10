@@ -18,7 +18,6 @@ class GameScene: SKScene {
     
     fileprivate var numberOfLives = 3
     
-//    fileprivate let notes = Note.notes
     fileprivate var notes: [Note]!
     
     fileprivate var note: Note!
@@ -218,11 +217,5 @@ class GameScene: SKScene {
         gameOverScene.score = score
         gameOverScene.scaleMode = .aspectFill
         view?.presentScene(gameOverScene)
-    }
-    
-    fileprivate func createHapticFeedback(style: UIImpactFeedbackGenerator.FeedbackStyle) {
-        let generator = UIImpactFeedbackGenerator(style: style)
-        generator.prepare()
-        generator.impactOccurred()
     }
 }

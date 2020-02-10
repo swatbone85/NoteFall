@@ -50,6 +50,8 @@ class SettingsScene: SKScene {
     fileprivate func goBackToMenu() {
         saveSettings()
         
+        createHapticFeedback(style: .light)
+        
         if Device.isIpad {
             //TODO: - Add WelcomeScenePad.sks
 //            welcomeScene = WelcomeScene(fileNamed: "WelcomeScenePad.sks")
@@ -77,6 +79,8 @@ class SettingsScene: SKScene {
             fatalError("No transposition")
         }
         transpositionLabel.text = transposition.rawValue
+        
+        createHapticFeedback(style: .light)
     }
     
     fileprivate func toggleAccidentals() {
@@ -88,6 +92,8 @@ class SettingsScene: SKScene {
         case false:
             accidentalsLabel.text = "No"
         }
+        
+        createHapticFeedback(style: .light)
     }
     
     fileprivate func saveSettings() {

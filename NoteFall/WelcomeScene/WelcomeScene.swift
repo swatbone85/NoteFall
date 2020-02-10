@@ -40,6 +40,8 @@ class WelcomeScene: SKScene {
     }
     
     fileprivate func startGame() {
+        createHapticFeedback(style: .light)
+        
         let gameScene = GameScene()
         gameScene.scaleMode = .resizeFill
         view?.presentScene(gameScene)
@@ -54,6 +56,8 @@ class WelcomeScene: SKScene {
         } else {
             settingsScene = SettingsScene(fileNamed: "SettingsScene.sks")
         }
+        
+        createHapticFeedback(style: .light)
         
         settingsScene.scaleMode = .aspectFill
         view?.presentScene(settingsScene)

@@ -54,3 +54,9 @@ struct Device {
 struct Layer {
     static let background: CGFloat = -1
 }
+
+func createHapticFeedback(style: UIImpactFeedbackGenerator.FeedbackStyle) {
+    let generator = UIImpactFeedbackGenerator(style: style)
+    generator.prepare()
+    generator.impactOccurred()
+}
