@@ -53,8 +53,7 @@ class SettingsScene: SKScene {
         createHapticFeedback(style: .light)
         
         if Device.isIpad {
-            //TODO: - Add WelcomeScenePad.sks
-//            welcomeScene = WelcomeScene(fileNamed: "WelcomeScenePad.sks")
+            welcomeScene = WelcomeScene(fileNamed: "WelcomeScenePad.sks")
         } else if Device.hasNotch {
             welcomeScene = WelcomeScene(fileNamed: "WelcomeSceneNotch.sks")
         } else {
