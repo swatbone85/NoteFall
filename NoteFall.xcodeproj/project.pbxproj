@@ -24,6 +24,7 @@
 		C223B4F323A01B6B009ADD1F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223B4F223A01B6B009ADD1F /* Helpers.swift */; };
 		C25972E223A14BA100A7AB0D /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25972E123A14BA100A7AB0D /* GameOverScene.swift */; };
 		C2838CB123A91D440014FE0C /* ScoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2838CB023A91D440014FE0C /* ScoreLabel.swift */; };
+		C288755A23F25C55002F18C3 /* WelcomeScenePad.sks in Resources */ = {isa = PBXBuildFile; fileRef = C288755923F25C55002F18C3 /* WelcomeScenePad.sks */; };
 		C2A7638B23B967F9009DEA2D /* WelcomeScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2A7638A23B967F9009DEA2D /* WelcomeScene.sks */; };
 		C2A7638D23B9F388009DEA2D /* SettingsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2A7638C23B9F388009DEA2D /* SettingsScene.sks */; };
 		C2B9DB5A23D97C69005B5868 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2B9DB5923D97C69005B5868 /* GameOverScene.sks */; };
@@ -56,6 +57,7 @@
 		C223B4F223A01B6B009ADD1F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		C25972E123A14BA100A7AB0D /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		C2838CB023A91D440014FE0C /* ScoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreLabel.swift; sourceTree = "<group>"; };
+		C288755923F25C55002F18C3 /* WelcomeScenePad.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WelcomeScenePad.sks; sourceTree = "<group>"; };
 		C2A7638A23B967F9009DEA2D /* WelcomeScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WelcomeScene.sks; sourceTree = "<group>"; };
 		C2A7638C23B9F388009DEA2D /* SettingsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SettingsScene.sks; sourceTree = "<group>"; };
 		C2B9DB5923D97C69005B5868 /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				C2A7638A23B967F9009DEA2D /* WelcomeScene.sks */,
 				C222B84623ED494000653CE1 /* WelcomeSceneNotch.sks */,
 				C20D1BC323ABF74800C994E8 /* WelcomeScene.swift */,
+				C288755923F25C55002F18C3 /* WelcomeScenePad.sks */,
 			);
 			path = WelcomeScene;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2D8883323DC5FA500E09433 /* SettingsSceneNotch.sks in Resources */,
+				C288755A23F25C55002F18C3 /* WelcomeScenePad.sks in Resources */,
 				C223B4E423A001D6009ADD1F /* Main.storyboard in Resources */,
 				C2D8883523DC644C00E09433 /* SettingsScenePad.sks in Resources */,
 				C210C74323A2BC9800412FD4 /* explosion.sks in Resources */,
@@ -451,7 +455,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thomasswatland.NoteFall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -472,7 +476,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thomasswatland.NoteFall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

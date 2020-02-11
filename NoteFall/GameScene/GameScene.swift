@@ -14,7 +14,7 @@ class GameScene: SKScene {
     fileprivate let tolerance = 0.95
     
     fileprivate var noteSpeed: CGFloat = 1
-    fileprivate let speedIncrease: CGFloat = 0.4
+    fileprivate let speedIncrease: CGFloat = 0.5
     
     fileprivate var numberOfLives = 3
     
@@ -129,7 +129,6 @@ class GameScene: SKScene {
                     if microphoneManager.tracker.frequency < upperLimit && microphoneManager.tracker.frequency > lowerLimit {
                         incrementScore(by: 1)
                         isPlaying = true
-                        noteSpeed += speedIncrease
                         destroy(noteLabel)
                         spawnNote()
                         
@@ -177,6 +176,9 @@ class GameScene: SKScene {
     
     fileprivate func incrementScore(by increment: Int) {
         score += increment
+        if score % 10 == 0 {
+            noteSpeed += speedIncrease
+        }
         scoreLabel.text = String(score)
         if score > highscore {
             highscore = score
