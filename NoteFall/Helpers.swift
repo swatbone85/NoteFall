@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import SpriteKit
 
 let octaves:[Double] = [1, 2, 4, 8]
 
@@ -59,4 +60,12 @@ func createHapticFeedback(style: UIImpactFeedbackGenerator.FeedbackStyle) {
     let generator = UIImpactFeedbackGenerator(style: style)
     generator.prepare()
     generator.impactOccurred()
+}
+
+func animate(_ node: SKLabelNode) {
+    let scaleUpAction = SKAction.scale(to: 1.1, duration: 1.6)
+    let scaleDownAction = SKAction.scale(to: 0.9, duration: 1.6)
+    let scaleGroup = SKAction.sequence([scaleUpAction, scaleDownAction])
+    let foreverAnimation = SKAction.repeatForever(scaleGroup)
+    node.run(foreverAnimation)
 }

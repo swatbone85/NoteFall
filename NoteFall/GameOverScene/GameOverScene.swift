@@ -1,6 +1,7 @@
 import SpriteKit
 class GameOverScene: SKScene {
     
+    private var gameOverLabel: SKLabelNode!
     private var scoreLabel: SKLabelNode!
     private var highscoreLabel: SKLabelNode!
     private let highscore = UserDefaults.standard.integer(forKey: Defaults.highscore)
@@ -39,6 +40,9 @@ class GameOverScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        
+        gameOverLabel = childNode(withName: "GameOverLabel") as? SKLabelNode
+        animate(gameOverLabel)
         
         backgroundNode = childNode(withName: "Background") as? SKSpriteNode
         backgroundNode.zPosition = Layer.background
