@@ -31,14 +31,6 @@ class WelcomeScene: SKScene {
         
     }
     
-    fileprivate func animate(_ node: SKLabelNode) {
-        let scaleUpAction = SKAction.scale(to: 1.1, duration: 1.6)
-        let scaleDownAction = SKAction.scale(to: 0.9, duration: 1.6)
-        let scaleGroup = SKAction.sequence([scaleUpAction, scaleDownAction])
-        let foreverAnimation = SKAction.repeatForever(scaleGroup)
-        node.run(foreverAnimation)
-    }
-    
     fileprivate func startGame() {
         createHapticFeedback(style: .light)
         
