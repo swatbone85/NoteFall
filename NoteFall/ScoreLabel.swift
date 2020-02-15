@@ -4,8 +4,9 @@ class ScoreLabel: SKLabelNode {
 
     convenience init(text: String, fontSize size: CGFloat) {
         self.init()
-        self.fontSize = size
         self.text = text
+        fontSize = size
+        fontColor = .darkGray
     }
 
     override init() {
