@@ -24,6 +24,8 @@ class GameScene: SKScene {
     
     fileprivate var lifeNodes = [SKNode]()
     
+    fileprivate var backgroundNode: SKSpriteNode!
+    
     fileprivate let noteLabel: SKLabelNode = {
         let label = SKLabelNode()
         label.fontColor = .orange
@@ -59,6 +61,12 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         
         transposition = Transposition(rawValue: gameManager.transposition)
+        
+        backgroundNode = SKSpriteNode(imageNamed: "Background")
+        backgroundNode.size.height = view.frame.height
+        backgroundNode.position = view.center
+        backgroundNode.zPosition = -1
+        addChild(backgroundNode)
         
         notes = Note.naturalNotes
         if gameManager.useAccidentals {
