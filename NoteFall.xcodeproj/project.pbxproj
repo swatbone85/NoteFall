@@ -103,9 +103,9 @@
 			isa = PBXGroup;
 			children = (
 				C2A7638A23B967F9009DEA2D /* WelcomeScene.sks */,
+				C288755923F25C55002F18C3 /* WelcomeScenePad.sks */,
 				C222B84623ED494000653CE1 /* WelcomeSceneNotch.sks */,
 				C20D1BC323ABF74800C994E8 /* WelcomeScene.swift */,
-				C288755923F25C55002F18C3 /* WelcomeScenePad.sks */,
 			);
 			path = WelcomeScene;
 			sourceTree = "<group>";
