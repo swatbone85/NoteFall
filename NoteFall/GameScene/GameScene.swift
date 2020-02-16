@@ -160,8 +160,9 @@ class GameScene: SKScene {
     fileprivate func spawnNote() {
         note = notes.randomElement()!
         let animationDuration: Double = 1.4
+        let initialRotation: CGFloat = .pi * 0.9
         noteLabel.position = CGPoint(x: frame.midX, y: frame.maxY)
-        noteLabel.zRotation = CGFloat.random(in: -.pi...(.pi))
+        noteLabel.zRotation = CGFloat.random(in: -initialRotation...(initialRotation))
         let anim1 = SKAction.rotate(toAngle: .pi/5, duration: animationDuration)
         let anim2 = SKAction.rotate(toAngle: -.pi/5, duration: animationDuration)
         noteLabel.text = note.name
