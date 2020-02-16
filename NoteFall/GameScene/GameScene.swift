@@ -51,7 +51,6 @@ class GameScene: SKScene {
     fileprivate let scoreTitle = ScoreLabel(text: "Score", fontSize: 24)
     fileprivate let scoreLabel = ScoreLabel(text: "0", fontSize: 36)
     
-    fileprivate var highscore = 0
     fileprivate let highscoreTitle = ScoreLabel(text: "Highscore", fontSize: 24)
     fileprivate let highscoreLabel = ScoreLabel(text: String(UserDefaults.standard.integer(forKey: Defaults.highscore)), fontSize: 36)
     
@@ -189,10 +188,10 @@ class GameScene: SKScene {
             noteSpeed += speedIncrease
         }
         scoreLabel.text = String(score)
-        if score > highscore {
-            highscore = score
-            highscoreLabel.text = String(highscore)
-            UserDefaults.standard.set(highscore, forKey: Defaults.highscore)
+        if score > gameManager.highscore {
+            gameManager.highscore = score
+            highscoreLabel.text = String(gameManager.highscore)
+            UserDefaults.standard.set(gameManager.highscore, forKey: Defaults.highscore)
             UserDefaults.standard.synchronize()
         }
     }

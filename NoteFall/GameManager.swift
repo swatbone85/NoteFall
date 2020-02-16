@@ -9,7 +9,7 @@ class GameManager {
         }
     }
     
-    let highScore = UserDefaults.standard.integer(forKey: Defaults.highscore)
+    var highscore = UserDefaults.standard.integer(forKey: Defaults.highscore)
     
     var useAccidentals = UserDefaults.standard.bool(forKey: Defaults.useAccidentals) {
         didSet {

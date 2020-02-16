@@ -1,10 +1,11 @@
 import SpriteKit
 class GameOverScene: SKScene {
     
+    private let gameManager = GameManager.shared
+    
     private var gameOverLabel: SKLabelNode!
     private var scoreLabel: SKLabelNode!
     private var highscoreLabel: SKLabelNode!
-    private let highscore = UserDefaults.standard.integer(forKey: Defaults.highscore)
     
     private var tryAgainLabel: SKSpriteNode!
     private var backToMenuLabel: SKSpriteNode!
@@ -51,7 +52,7 @@ class GameOverScene: SKScene {
         scoreLabel.text = String(score)
         
         highscoreLabel = childNode(withName: "HighscoreLabel") as? SKLabelNode
-        highscoreLabel.text = String(GameManager.shared.highScore)
+        highscoreLabel.text = String(GameManager.shared.highscore)
         
         tryAgainLabel = childNode(withName: "TryAgainButton") as? SKSpriteNode
         
