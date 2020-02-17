@@ -43,21 +43,24 @@ class GameOverScene: SKScene {
     override func didMove(to view: SKView) {
         
         gameOverLabel = childNode(withName: "GameOverLabel") as? SKLabelNode
+        gameOverLabel.text = Localization.gameOverTitle
         animate(gameOverLabel)
         
         backgroundNode = childNode(withName: "Background") as? SKSpriteNode
         backgroundNode.zPosition = Layer.background
         
         scoreLabel = childNode(withName: "ScoreLabel") as? SKLabelNode
+        scoreLabel.text = Localization.scoreLabel
         scoreLabel.text = String(score)
         
         highscoreLabel = childNode(withName: "HighscoreLabel") as? SKLabelNode
+        highscoreLabel.text = Localization.highscoreLabel
         highscoreLabel.text = String(GameManager.shared.highscore)
         
-        tryAgainButton = ButtonNode(withText: "Try again!")
+        tryAgainButton = ButtonNode(withText: Localization.tryAgainButtonTitle)
         tryAgainButton.position = CGPoint(x: 0, y: -100)
         
-        backToMenuButton = ButtonNode(withText: "Back")
+        backToMenuButton = ButtonNode(withText: Localization.backToMenuTitle)
         backToMenuButton.position = CGPoint(x: 0, y: -260)
         
         if !Device.isIpad {

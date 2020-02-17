@@ -48,10 +48,10 @@ class GameScene: SKScene {
     }()
     
     fileprivate var score = 0
-    fileprivate let scoreTitle = ScoreLabel(text: "Score", fontSize: 24)
+    fileprivate var scoreTitle: ScoreLabel!
     fileprivate let scoreLabel = ScoreLabel(text: "0", fontSize: 36)
     
-    fileprivate let highscoreTitle = ScoreLabel(text: "Highscore", fontSize: 24)
+    fileprivate var highscoreTitle: ScoreLabel!
     fileprivate let highscoreLabel = ScoreLabel(text: String(UserDefaults.standard.integer(forKey: Defaults.highscore)), fontSize: 36)
     
     fileprivate var transposition: Transposition!
@@ -66,6 +66,9 @@ class GameScene: SKScene {
         backgroundNode.position = view.center
         backgroundNode.zPosition = -1
         addChild(backgroundNode)
+        
+        scoreTitle = ScoreLabel(text: Localization.scoreLabel, fontSize: 24)
+        highscoreTitle = ScoreLabel(text: Localization.highscoreLabel, fontSize: 24)
         
         notes = Note.naturalNotes
         if gameManager.useAccidentals {

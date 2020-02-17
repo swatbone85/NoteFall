@@ -22,6 +22,8 @@
 		C223B4E923A001D8009ADD1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C223B4E723A001D8009ADD1F /* LaunchScreen.storyboard */; };
 		C223B4F123A00C70009ADD1F /* MicrophoneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223B4F023A00C70009ADD1F /* MicrophoneManager.swift */; };
 		C223B4F323A01B6B009ADD1F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223B4F223A01B6B009ADD1F /* Helpers.swift */; };
+		C246FDA623FA78F900A051E8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C246FDA823FA78F900A051E8 /* Localizable.strings */; };
+		C246FDAB23FA7DE400A051E8 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246FDAA23FA7DE400A051E8 /* Localization.swift */; };
 		C25972E223A14BA100A7AB0D /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25972E123A14BA100A7AB0D /* GameOverScene.swift */; };
 		C2838CB123A91D440014FE0C /* ScoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2838CB023A91D440014FE0C /* ScoreLabel.swift */; };
 		C288755A23F25C55002F18C3 /* WelcomeScenePad.sks in Resources */ = {isa = PBXBuildFile; fileRef = C288755923F25C55002F18C3 /* WelcomeScenePad.sks */; };
@@ -56,6 +58,11 @@
 		C223B4EA23A001D8009ADD1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C223B4F023A00C70009ADD1F /* MicrophoneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneManager.swift; sourceTree = "<group>"; };
 		C223B4F223A01B6B009ADD1F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		C246FDA223FA787500A051E8 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Main.strings; sourceTree = "<group>"; };
+		C246FDA323FA787500A051E8 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C246FDA723FA78F900A051E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C246FDA923FA78FE00A051E8 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C246FDAA23FA7DE400A051E8 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		C25972E123A14BA100A7AB0D /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		C2838CB023A91D440014FE0C /* ScoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreLabel.swift; sourceTree = "<group>"; };
 		C288755923F25C55002F18C3 /* WelcomeScenePad.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WelcomeScenePad.sks; sourceTree = "<group>"; };
@@ -148,6 +155,8 @@
 				C223B4E523A001D8009ADD1F /* Assets.xcassets */,
 				C223B4E723A001D8009ADD1F /* LaunchScreen.storyboard */,
 				C223B4EA23A001D8009ADD1F /* Info.plist */,
+				C246FDA823FA78F900A051E8 /* Localizable.strings */,
+				C246FDAA23FA7DE400A051E8 /* Localization.swift */,
 			);
 			path = NoteFall;
 			sourceTree = "<group>";
@@ -237,6 +246,7 @@
 			knownRegions = (
 				en,
 				Base,
+				nb,
 			);
 			mainGroup = C223B4CC23A001D6009ADD1F;
 			productRefGroup = C223B4D623A001D6009ADD1F /* Products */;
@@ -253,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C246FDA623FA78F900A051E8 /* Localizable.strings in Resources */,
 				C2D8883323DC5FA500E09433 /* SettingsSceneNotch.sks in Resources */,
 				C288755A23F25C55002F18C3 /* WelcomeScenePad.sks in Resources */,
 				C223B4E423A001D6009ADD1F /* Main.storyboard in Resources */,
@@ -306,6 +317,7 @@
 			files = (
 				C223B4DF23A001D6009ADD1F /* GameScene.swift in Sources */,
 				C223B4F123A00C70009ADD1F /* MicrophoneManager.swift in Sources */,
+				C246FDAB23FA7DE400A051E8 /* Localization.swift in Sources */,
 				C2F6048423F973D900231F6E /* ButtonNode.swift in Sources */,
 				C223B4E123A001D6009ADD1F /* GameViewController.swift in Sources */,
 				C223B4F323A01B6B009ADD1F /* Helpers.swift in Sources */,
@@ -325,6 +337,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C223B4E323A001D6009ADD1F /* Base */,
+				C246FDA223FA787500A051E8 /* nb */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -333,8 +346,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				C223B4E823A001D8009ADD1F /* Base */,
+				C246FDA323FA787500A051E8 /* nb */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C246FDA823FA78F900A051E8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C246FDA723FA78F900A051E8 /* en */,
+				C246FDA923FA78FE00A051E8 /* nb */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -344,6 +367,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -404,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

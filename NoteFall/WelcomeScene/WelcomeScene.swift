@@ -24,9 +24,10 @@ class WelcomeScene: SKScene {
         backgroundNode.zPosition = Layer.background
         
         titleLabel = childNode(withName: "TitleLabel") as? SKLabelNode
-        startButton = ButtonNode(withText: "Let's go!!")
+        
+        startButton = ButtonNode(withText: Localization.startButtonTitle)
         startButton.position = CGPoint(x: 0, y: -100)
-        settingsButton = ButtonNode(withText: "Settings")
+        settingsButton = ButtonNode(withText: Localization.settingsButtonTitle)
         settingsButton.position = CGPoint(x: 0, y: -260)
         
         if !Device.isIpad {

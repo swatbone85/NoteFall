@@ -13,6 +13,9 @@ class SettingsScene: SKScene {
     
     fileprivate var welcomeScene: SKScene!
     
+    fileprivate var transpositionTitle: SKLabelNode!
+    fileprivate var accidentalsTitle: SKLabelNode!
+    
     override func didMove(to view: SKView) {
         
         transposition = Transposition(rawValue: gameManager.transposition)
@@ -20,7 +23,13 @@ class SettingsScene: SKScene {
         backgroundNode = childNode(withName: "Background") as? SKSpriteNode
         backgroundNode.zPosition = Layer.background
         
-        backButton = ButtonNode(withText: "Back")
+        transpositionTitle = childNode(withName: "TranspositionTitle") as? SKLabelNode
+        transpositionTitle.text = Localization.transpositionLabel
+        
+        accidentalsTitle = childNode(withName: "AccidentalsTitle") as? SKLabelNode
+        accidentalsTitle.text = Localization.useAccidentalsLabel
+        
+        backButton = ButtonNode(withText: Localization.backToMenuTitle)
         backButton.position = CGPoint(x: 0, y: -260)
         
         if !Device.isIpad {
@@ -33,12 +42,13 @@ class SettingsScene: SKScene {
         transpositionLabel.text = gameManager.transposition
         
         accidentalsLabel = childNode(withName: "AccidentalsLabel") as? SKLabelNode
+        accidentalsLabel.text = Localization.useAccidentalsLabel
         
         switch gameManager.useAccidentals {
         case true:
-            accidentalsLabel.text = "Yes"
+            accidentalsLabel.text = Localization.yes
         case false:
-            accidentalsLabel.text = "No"
+            accidentalsLabel.text = Localization.no
         }
     }
     
@@ -94,9 +104,9 @@ class SettingsScene: SKScene {
         
         switch gameManager.useAccidentals {
         case true:
-            accidentalsLabel.text = "Yes"
+            accidentalsLabel.text = Localization.yes
         case false:
-            accidentalsLabel.text = "No"
+            accidentalsLabel.text = Localization.no
         }
         
         createHapticFeedback(style: .light)
