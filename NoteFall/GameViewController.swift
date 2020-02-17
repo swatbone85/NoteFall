@@ -1,11 +1,3 @@
-//
-//  GameViewController.swift
-//  NoteFall
-//
-//  Created by Thomas Swatland on 10/12/2019.
-//  Copyright © 2019 Thomas Swatland. All rights reserved.
-//
-
 import UIKit
 import SpriteKit
 import GameplayKit
@@ -31,11 +23,7 @@ class GameViewController: UIViewController {
             // Present the scene
             view.presentScene(welcomeScene)
             
-            
             view.ignoresSiblingOrder = true
-            
-//            view.showsFPS = true
-//            view.showsNodeCount = true
         }
     }
 

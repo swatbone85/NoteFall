@@ -3,8 +3,8 @@ import SpriteKit
 class WelcomeScene: SKScene {
     
     fileprivate var titleLabel: SKLabelNode!
-    fileprivate var startButton: SKSpriteNode!
-    fileprivate var settingsButton: SKSpriteNode!
+    fileprivate var startButton: ButtonNode!
+    fileprivate var settingsButton: ButtonNode!
     fileprivate var backgroundNode: SKSpriteNode!
     
     fileprivate var settingsScene: SKScene!
@@ -24,11 +24,20 @@ class WelcomeScene: SKScene {
         backgroundNode.zPosition = Layer.background
         
         titleLabel = childNode(withName: "TitleLabel") as? SKLabelNode
-        startButton = childNode(withName: "StartGameButton") as? SKSpriteNode
-        settingsButton = childNode(withName: "SettingsButton") as? SKSpriteNode
+        startButton = ButtonNode(withText: "Let's go!!")
+        startButton.position = CGPoint(x: 0, y: -100)
+        settingsButton = ButtonNode(withText: "Settings")
+        settingsButton.position = CGPoint(x: 0, y: -260)
+        
+        if !Device.isIpad {
+            startButton.setScale(3)
+            settingsButton.setScale(3)
+        }
+            
+        addChild(startButton)
+        addChild(settingsButton)
     
         animate(titleLabel)
-        
     }
     
     fileprivate func startGame() {

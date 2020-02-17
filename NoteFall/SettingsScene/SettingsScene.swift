@@ -2,7 +2,7 @@ import SpriteKit
 
 class SettingsScene: SKScene {
     
-    fileprivate var backButton: SKSpriteNode!
+    fileprivate var backButton: ButtonNode!
     fileprivate var transpositionLabel: SKLabelNode!
     fileprivate var accidentalsLabel: SKLabelNode!
     fileprivate var backgroundNode: SKSpriteNode!
@@ -20,7 +20,14 @@ class SettingsScene: SKScene {
         backgroundNode = childNode(withName: "Background") as? SKSpriteNode
         backgroundNode.zPosition = Layer.background
         
-        backButton = childNode(withName: "BackToMenuButton") as? SKSpriteNode
+        backButton = ButtonNode(withText: "Back")
+        backButton.position = CGPoint(x: 0, y: -260)
+        
+        if !Device.isIpad {
+            backButton.setScale(3)
+        }
+        
+        addChild(backButton)
         
         transpositionLabel = childNode(withName: "TranspositionLabel") as? SKLabelNode
         transpositionLabel.text = gameManager.transposition

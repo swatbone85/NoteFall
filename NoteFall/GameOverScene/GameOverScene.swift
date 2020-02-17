@@ -7,8 +7,8 @@ class GameOverScene: SKScene {
     private var scoreLabel: SKLabelNode!
     private var highscoreLabel: SKLabelNode!
     
-    private var tryAgainLabel: SKSpriteNode!
-    private var backToMenuLabel: SKSpriteNode!
+    private var tryAgainButton: ButtonNode!
+    private var backToMenuButton: ButtonNode!
     private var backgroundNode: SKSpriteNode!
     
     private var welcomeScene: SKScene!
@@ -18,13 +18,13 @@ class GameOverScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         
-        if tryAgainLabel.contains(touch.location(in: self)) {
+        if tryAgainButton.contains(touch.location(in: self)) {
             createHapticFeedback(style: .light)
             
             let gameScene = GameScene(fileNamed: "GameScene.sks")
             gameScene?.scaleMode = .resizeFill
             view?.presentScene(gameScene)
-        } else if backToMenuLabel.contains(touch.location(in: self)) {
+        } else if backToMenuButton.contains(touch.location(in: self)) {
             
             createHapticFeedback(style: .light)
             
@@ -54,9 +54,19 @@ class GameOverScene: SKScene {
         highscoreLabel = childNode(withName: "HighscoreLabel") as? SKLabelNode
         highscoreLabel.text = String(GameManager.shared.highscore)
         
-        tryAgainLabel = childNode(withName: "TryAgainButton") as? SKSpriteNode
+        tryAgainButton = ButtonNode(withText: "Try again!")
+        tryAgainButton.position = CGPoint(x: 0, y: -100)
         
-        backToMenuLabel = childNode(withName: "BackToMenuButton") as? SKSpriteNode
+        backToMenuButton = ButtonNode(withText: "Back")
+        backToMenuButton.position = CGPoint(x: 0, y: -260)
+        
+        if !Device.isIpad {
+           tryAgainButton.setScale(3)
+            backToMenuButton.setScale(3)
+        }
+        
+        addChild(tryAgainButton)
+        addChild(backToMenuButton)
         
     }
 }
