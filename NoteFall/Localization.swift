@@ -12,4 +12,8 @@ struct Localization {
     static let useAccidentalsLabel = NSLocalizedString("Accidentals", comment: "The label describing the use of accidentals")
     static let yes = NSLocalizedString("Yes", comment: "This one kinda speaks for itself")
     static let no = NSLocalizedString("No", comment: "This one kinda speaks for itself")
+    static let microphoneSensitivityTitle = NSLocalizedString("Microphone sensitivity", comment: "Adjusting the microphone sensitivity level")
+    static let microphoneSensitivityHigh = NSLocalizedString("High", comment: "The highest level of microphone sensitivity")
+    static let microphoneSensitivityMedium = NSLocalizedString("Medium", comment: "Medium level of microphone sensitivity")
+    static let microphoneSensitivityLow = NSLocalizedString("Low", comment: "The lowest level of microphone sensitivity")
 }
