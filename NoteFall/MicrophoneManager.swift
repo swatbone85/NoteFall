@@ -2,7 +2,7 @@ import Foundation
 import AudioKit
 
 enum MicrophoneSensitivity: CGFloat {
-    case low = 0.5, medium = 0.4, high = 0.3
+    case low = 0.45, medium = 0.3, high = 0.25
 }
 
 class MicrophoneManager {
