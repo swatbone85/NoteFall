@@ -34,6 +34,7 @@ struct Defaults {
     static let highscore = "highscore"
     static let transposition = "transposition"
     static let useAccidentals = "useAccidentals"
+    static let microphoneSensitivity = "microphoneSensitivity"
 }
 
 enum Transposition: String {
