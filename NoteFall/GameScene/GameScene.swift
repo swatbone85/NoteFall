@@ -11,6 +11,7 @@ class GameScene: SKScene {
     fileprivate var gameStarted = false
     
     fileprivate var isPlaying = false
+    
     fileprivate let tolerance = 0.95
     
     fileprivate var noteSpeed: CGFloat = 1
@@ -130,22 +131,21 @@ class GameScene: SKScene {
         
         if gameStarted {
             noteLabel.position.y -= noteSpeed
-            if microphoneManager.tracker.amplitude > 0.3 {
+            if microphoneManager.tracker.amplitude > Double(microphoneManager.sensitivity!.rawValue) {
                 if isPlaying { return }
-                
+                isPlaying = true
                 for i in octaves {
                     let upperLimit = ((note.frequency*i)*transpositionFactor) * (1+(1-tolerance))
                     let lowerLimit = ((note.frequency*i)*transpositionFactor) * tolerance
                     if microphoneManager.tracker.frequency < upperLimit && microphoneManager.tracker.frequency > lowerLimit {
                         incrementScore(by: 1)
-                        isPlaying = true
                         destroy(noteLabel)
                         spawnNote()
                         
                         return
                     }
                 }
-            } else {
+            } else if microphoneManager.tracker.amplitude < Double(microphoneManager.sensitivity!.rawValue) / 2 {
                 isPlaying = false
             }
             

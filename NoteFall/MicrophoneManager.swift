@@ -1,14 +1,20 @@
 import Foundation
 import AudioKit
 
-enum MicrophoneSensitivity {
-    case low, med, high
+enum MicrophoneSensitivity: CGFloat {
+    case low = 0.5, medium = 0.4, high = 0.3
 }
 
 class MicrophoneManager {
     
     static let shared = MicrophoneManager()
     private let microphone = AKMicrophone()
+    
+    var sensitivity = MicrophoneSensitivity(rawValue: CGFloat(UserDefaults.standard.float(forKey: Defaults.microphoneSensitivity))) ?? MicrophoneSensitivity(rawValue: MicrophoneSensitivity.high.rawValue) {
+        didSet {
+            UserDefaults.standard.set(sensitivity!.rawValue, forKey: Defaults.microphoneSensitivity)
+        }
+    }
     
     var tracker: AKFrequencyTracker!
     

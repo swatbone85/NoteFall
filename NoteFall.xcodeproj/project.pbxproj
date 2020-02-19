@@ -163,6 +163,7 @@
 				C23E629524029D090098186D /* AdManager.swift */,
 				C2A3B94624117FBC00FA900F /* IAPManager.swift */,
 				C204582E23D8C10D00C1E82A /* GameManager.swift */,
+				C223B4E023A001D6009ADD1F /* GameViewController.swift */,
 				C223B4E223A001D6009ADD1F /* Main.storyboard */,
 				C223B4E523A001D8009ADD1F /* Assets.xcassets */,
 				C223B4E723A001D8009ADD1F /* LaunchScreen.storyboard */,

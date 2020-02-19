@@ -12,6 +12,7 @@ class SettingsScene: SKScene {
     
     private let gameManager = GameManager.shared
     private let iapManager = IAPManager.shared
+    fileprivate let microphoneManager = MicrophoneManager.shared
     
     private var transposition: Transposition!
     
@@ -38,12 +39,22 @@ class SettingsScene: SKScene {
         accidentalsLabel.text = Localization.useAccidentalsLabel
         
         microphoneTitle = childNode(withName: "MicrophoneTitle") as? SKLabelNode
-        microphoneTitle.text = "Microphone sensitivity"
+        microphoneTitle.text = Localization.microphoneSensitivityTitle
         microphoneLabel = childNode(withName: "MicrophoneLabel") as? SKLabelNode
-        microphoneLabel.text = "High"
         
         noAdsButton = ButtonNode(withText: Localization.removeAds)
         noAdsButton.position = CGPoint(x: 0, y: -460)
+        
+        switch microphoneManager.sensitivity {
+        case .low:
+            microphoneLabel.text = Localization.microphoneSensitivityLow
+        case .medium:
+            microphoneLabel.text = Localization.microphoneSensitivityMedium
+        case .high:
+            microphoneLabel.text = Localization.microphoneSensitivityHigh
+        case .none:
+            break
+        }
         
         backButton = ButtonNode(withText: Localization.backToMenuTitle)
         backButton.position = CGPoint(x: 0, y: -260)
@@ -84,6 +95,8 @@ class SettingsScene: SKScene {
             toggleAccidentals()
         } else if noAdsButton.contains(touch.location(in: self)) {
             didTapNoAdsButton()
+        } else if microphoneLabel.contains(touch.location(in: self)) {
+            changeMicrophoneSensitivity()
         }
     }
     
@@ -99,7 +112,7 @@ class SettingsScene: SKScene {
         } else {
             welcomeScene = WelcomeScene(fileNamed: "WelcomeScene.sks")
         }
-        welcomeScene?.scaleMode = .aspectFill
+        welcomeScene.scaleMode = .aspectFill
         view?.presentScene(welcomeScene)
     }
     
@@ -139,6 +152,22 @@ class SettingsScene: SKScene {
         }
         
         createHapticFeedback(style: .light)
+    }
+    
+    fileprivate func changeMicrophoneSensitivity() {
+        switch microphoneManager.sensitivity {
+        case .low:
+            microphoneManager.sensitivity = .medium
+            microphoneLabel.text = Localization.microphoneSensitivityMedium
+        case .medium:
+            microphoneManager.sensitivity = .high
+            microphoneLabel.text = Localization.microphoneSensitivityHigh
+        case .high:
+            microphoneManager.sensitivity = .low
+            microphoneLabel.text = Localization.microphoneSensitivityLow
+        case .none:
+            break
+        }
     }
     
     fileprivate func saveSettings() {
