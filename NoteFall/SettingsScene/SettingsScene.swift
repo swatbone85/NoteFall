@@ -3,8 +3,15 @@ import SpriteKit
 class SettingsScene: SKScene {
     
     fileprivate var backButton: ButtonNode!
+    
+    fileprivate var transpositionTitle: SKLabelNode!
     fileprivate var transpositionLabel: SKLabelNode!
+    
+    fileprivate var accidentalsTitle: SKLabelNode!
     fileprivate var accidentalsLabel: SKLabelNode!
+    
+    fileprivate var microphoneTitle: SKLabelNode!
+    fileprivate var microphoneLabel: SKLabelNode!
     fileprivate var backgroundNode: SKSpriteNode!
     
     fileprivate let gameManager = GameManager.shared
@@ -12,9 +19,6 @@ class SettingsScene: SKScene {
     fileprivate var transposition: Transposition!
     
     fileprivate var welcomeScene: SKScene!
-    
-    fileprivate var transpositionTitle: SKLabelNode!
-    fileprivate var accidentalsTitle: SKLabelNode!
     
     override func didMove(to view: SKView) {
         
@@ -25,9 +29,18 @@ class SettingsScene: SKScene {
         
         transpositionTitle = childNode(withName: "TranspositionTitle") as? SKLabelNode
         transpositionTitle.text = Localization.transpositionLabel
+        transpositionLabel = childNode(withName: "TranspositionLabel") as? SKLabelNode
+        transpositionLabel.text = gameManager.transposition
         
         accidentalsTitle = childNode(withName: "AccidentalsTitle") as? SKLabelNode
         accidentalsTitle.text = Localization.useAccidentalsLabel
+        accidentalsLabel = childNode(withName: "AccidentalsLabel") as? SKLabelNode
+        accidentalsLabel.text = Localization.useAccidentalsLabel
+        
+        microphoneTitle = childNode(withName: "MicrophoneTitle") as? SKLabelNode
+        microphoneTitle.text = "Microphone sensitivity"
+        microphoneLabel = childNode(withName: "MicrophoneLabel") as? SKLabelNode
+        microphoneLabel.text = "High"
         
         backButton = ButtonNode(withText: Localization.backToMenuTitle)
         backButton.position = CGPoint(x: 0, y: -260)
@@ -37,12 +50,6 @@ class SettingsScene: SKScene {
         }
         
         addChild(backButton)
-        
-        transpositionLabel = childNode(withName: "TranspositionLabel") as? SKLabelNode
-        transpositionLabel.text = gameManager.transposition
-        
-        accidentalsLabel = childNode(withName: "AccidentalsLabel") as? SKLabelNode
-        accidentalsLabel.text = Localization.useAccidentalsLabel
         
         switch gameManager.useAccidentals {
         case true:
