@@ -7,4 +7,5 @@ target 'NoteFall' do
 
   # Pods for NoteFall
 pod 'AudioKit/Core'
+pod 'Google-Mobile-Ads-SDK'
 end
