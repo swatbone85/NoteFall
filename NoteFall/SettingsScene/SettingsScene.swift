@@ -7,6 +7,8 @@ class SettingsScene: SKScene {
     private var transpositionLabel: SKLabelNode!
     private var accidentalsLabel: SKLabelNode!
     private var backgroundNode: SKSpriteNode!
+    fileprivate var microphoneTitle: SKLabelNode!
+    fileprivate var microphoneLabel: SKLabelNode!
     
     private let gameManager = GameManager.shared
     private let iapManager = IAPManager.shared
@@ -27,9 +29,18 @@ class SettingsScene: SKScene {
         
         transpositionTitle = childNode(withName: "TranspositionTitle") as? SKLabelNode
         transpositionTitle.text = Localization.transpositionLabel
+        transpositionLabel = childNode(withName: "TranspositionLabel") as? SKLabelNode
+        transpositionLabel.text = gameManager.transposition
         
         accidentalsTitle = childNode(withName: "AccidentalsTitle") as? SKLabelNode
         accidentalsTitle.text = Localization.useAccidentalsLabel
+        accidentalsLabel = childNode(withName: "AccidentalsLabel") as? SKLabelNode
+        accidentalsLabel.text = Localization.useAccidentalsLabel
+        
+        microphoneTitle = childNode(withName: "MicrophoneTitle") as? SKLabelNode
+        microphoneTitle.text = "Microphone sensitivity"
+        microphoneLabel = childNode(withName: "MicrophoneLabel") as? SKLabelNode
+        microphoneLabel.text = "High"
         
         noAdsButton = ButtonNode(withText: Localization.removeAds)
         noAdsButton.position = CGPoint(x: 0, y: -460)
