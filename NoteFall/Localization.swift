@@ -12,4 +12,5 @@ struct Localization {
     static let useAccidentalsLabel = NSLocalizedString("Accidentals", comment: "The label describing the use of accidentals")
     static let yes = NSLocalizedString("Yes", comment: "This one kinda speaks for itself")
     static let no = NSLocalizedString("No", comment: "This one kinda speaks for itself")
+    static let removeAds = NSLocalizedString("Remove Ads", comment: "Button used to pay to remove ads")
 }
