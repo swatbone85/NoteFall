@@ -27,6 +27,7 @@
 		C246FDAB23FA7DE400A051E8 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246FDAA23FA7DE400A051E8 /* Localization.swift */; };
 		C25972E223A14BA100A7AB0D /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25972E123A14BA100A7AB0D /* GameOverScene.swift */; };
 		C271898523FF009E00CEF323 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C271898423FF009E00CEF323 /* SoundManager.swift */; };
+		C271898723FF086A00CEF323 /* swoosh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C271898623FF086A00CEF323 /* swoosh.mp3 */; };
 		C2838CB123A91D440014FE0C /* ScoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2838CB023A91D440014FE0C /* ScoreLabel.swift */; };
 		C288755A23F25C55002F18C3 /* WelcomeScenePad.sks in Resources */ = {isa = PBXBuildFile; fileRef = C288755923F25C55002F18C3 /* WelcomeScenePad.sks */; };
 		C2A3B94524117F7B00FA900F /* IAP_ProductIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2A3B94424117F7B00FA900F /* IAP_ProductIDs.plist */; };
@@ -71,6 +72,7 @@
 		C246FDAA23FA7DE400A051E8 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		C25972E123A14BA100A7AB0D /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		C271898423FF009E00CEF323 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		C271898623FF086A00CEF323 /* swoosh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = swoosh.mp3; sourceTree = "<group>"; };
 		C2838CB023A91D440014FE0C /* ScoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreLabel.swift; sourceTree = "<group>"; };
 		C288755923F25C55002F18C3 /* WelcomeScenePad.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WelcomeScenePad.sks; sourceTree = "<group>"; };
 		C2A3B94424117F7B00FA900F /* IAP_ProductIDs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = IAP_ProductIDs.plist; sourceTree = "<group>"; };
