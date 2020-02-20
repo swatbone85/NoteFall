@@ -144,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				C223B4D823A001D6009ADD1F /* AppDelegate.swift */,
+				C271898623FF086A00CEF323 /* swoosh.mp3 */,
 				C20D1BC523ABF77700C994E8 /* WelcomeScene */,
 				C25972E323A14D7A00A7AB0D /* GameScene */,
 				C25972E423A14D8100A7AB0D /* GameOverScene */,
@@ -269,6 +270,7 @@
 				C246FDA623FA78F900A051E8 /* Localizable.strings in Resources */,
 				C2D8883323DC5FA500E09433 /* SettingsSceneNotch.sks in Resources */,
 				C288755A23F25C55002F18C3 /* WelcomeScenePad.sks in Resources */,
+				C271898723FF086A00CEF323 /* swoosh.mp3 in Resources */,
 				C223B4E423A001D6009ADD1F /* Main.storyboard in Resources */,
 				C2D8883523DC644C00E09433 /* SettingsScenePad.sks in Resources */,
 				C210C74323A2BC9800412FD4 /* explosion.sks in Resources */,
