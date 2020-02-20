@@ -168,6 +168,8 @@ class SettingsScene: SKScene {
         case .none:
             break
         }
+        
+        createHapticFeedback(style: .light)
     }
     
     fileprivate func saveSettings() {
