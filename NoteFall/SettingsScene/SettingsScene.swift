@@ -10,9 +10,15 @@ class SettingsScene: SKScene {
     fileprivate var microphoneTitle: SKLabelNode!
     fileprivate var microphoneLabel: SKLabelNode!
     
+    fileprivate var backgroundNode: SKSpriteNode!
+    
     private let gameManager = GameManager.shared
     private let iapManager = IAPManager.shared
+    fileprivate var muteButtonNode: SKSpriteNode!
+    
+    fileprivate let gameManager = GameManager.shared
     fileprivate let microphoneManager = MicrophoneManager.shared
+    fileprivate let soundManager = SoundManager.shared
     
     private var transposition: Transposition!
     
@@ -24,6 +30,11 @@ class SettingsScene: SKScene {
     override func didMove(to view: SKView) {
         
         transposition = Transposition(rawValue: gameManager.transposition)
+        
+        guard let image = UIImage(named: soundManager.isMuted ? "MuteIcon" : "SoundIcon")?.tinted(with: .darkGray) else { return }
+        let texture = SKTexture(image: image)
+        muteButtonNode = childNode(withName: "MuteButton") as? SKSpriteNode
+        muteButtonNode.texture = texture
         
         backgroundNode = childNode(withName: "Background") as? SKSpriteNode
         backgroundNode.zPosition = Layer.background
@@ -97,6 +108,8 @@ class SettingsScene: SKScene {
             didTapNoAdsButton()
         } else if microphoneLabel.contains(touch.location(in: self)) {
             changeMicrophoneSensitivity()
+        } else if muteButtonNode.contains(touch.location(in: self)) {
+            toggleMuted()
         }
     }
     
@@ -170,6 +183,17 @@ class SettingsScene: SKScene {
         }
         
         createHapticFeedback(style: .light)
+    }
+    
+    fileprivate func toggleMuted() {
+        SoundManager.shared.isMuted.toggle()
+        guard let image = UIImage(named: soundManager.isMuted ? "MuteIcon" : "SoundIcon")?.tinted(with: .darkGray) else { return }
+        let texture = SKTexture(image: image)
+        muteButtonNode.texture = texture
+        createHapticFeedback(style: .light)
+        
+        soundManager.playSound(fromFile: "swoosh.mp3", fromNode: muteButtonNode)
+//        muteButtonNode.playSound(soundManager.playSound(fromFile: "swoosh.mp3"))
     }
     
     fileprivate func saveSettings() {

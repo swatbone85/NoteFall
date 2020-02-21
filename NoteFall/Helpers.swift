@@ -36,6 +36,7 @@ struct Defaults {
     static let useAccidentals = "useAccidentals"
     static let microphoneSensitivity = "microphoneSensitivity"
     static let noAdsPurchased = "noAdsPurchased"
+    static let isMuted = "isMuted"
 }
 
 enum Transposition: String {
@@ -76,4 +77,14 @@ extension NSNotification.Name {
     static let removeAdsFailed = NSNotification.Name(rawValue: "removeAdsFailed")
     static let loadInterstitial = NSNotification.Name(rawValue: "loadInterstitial")
     static let removeAdsSucceeded = NSNotification.Name(rawValue: "removeAdsSucceeded")
+}
+
+extension UIImage {
+    func tinted(with color: UIColor) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        color.set()
+        withRenderingMode(.alwaysTemplate).draw(in: CGRect(origin: .zero, size: size))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
 }
