@@ -193,7 +193,6 @@ class SettingsScene: SKScene {
         createHapticFeedback(style: .light)
         
         soundManager.playSound(fromFile: "swoosh.mp3", fromNode: muteButtonNode)
-//        muteButtonNode.playSound(soundManager.playSound(fromFile: "swoosh.mp3"))
     }
     
     fileprivate func saveSettings() {
