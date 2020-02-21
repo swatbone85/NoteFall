@@ -35,6 +35,7 @@ struct Defaults {
     static let transposition = "transposition"
     static let useAccidentals = "useAccidentals"
     static let microphoneSensitivity = "microphoneSensitivity"
+    static let isMuted = "isMuted"
 }
 
 enum Transposition: String {
@@ -69,4 +70,14 @@ func animate(_ node: SKLabelNode) {
     let scaleGroup = SKAction.sequence([scaleUpAction, scaleDownAction])
     let foreverAnimation = SKAction.repeatForever(scaleGroup)
     node.run(foreverAnimation)
+}
+
+extension UIImage {
+    func tinted(with color: UIColor) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        color.set()
+        withRenderingMode(.alwaysTemplate).draw(in: CGRect(origin: .zero, size: size))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
 }
