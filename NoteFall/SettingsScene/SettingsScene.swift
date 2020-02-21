@@ -167,8 +167,6 @@ class SettingsScene: SKScene {
         let texture = SKTexture(image: image)
         muteButtonNode.texture = texture
         createHapticFeedback(style: .light)
-        
-        soundManager.playSound(fromFile: "swoosh.mp3", fromNode: muteButtonNode)
     }
     
     fileprivate func saveSettings() {
