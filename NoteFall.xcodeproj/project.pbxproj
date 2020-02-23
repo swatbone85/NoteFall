@@ -157,13 +157,13 @@
 		C223B4D723A001D6009ADD1F /* NoteFall */ = {
 			isa = PBXGroup;
 			children = (
-				C223B4D823A001D6009ADD1F /* AppDelegate.swift */,
-				C2ECAB1E240065F900ED466E /* background.wav */,
-				C2ECAB222401121800ED466E /* swoosh.mp3 */,
+				C23E6294240297C40098186D /* Main */,
+				C23E6292240297860098186D /* Audio */,
 				C20D1BC523ABF77700C994E8 /* WelcomeScene */,
 				C25972E323A14D7A00A7AB0D /* GameScene */,
 				C25972E423A14D8100A7AB0D /* GameOverScene */,
 				C2A7638E23B9F39A009DEA2D /* SettingsScene */,
+				C2F6048223F973C500231F6E /* UI Elements */,
 				C223B4F223A01B6B009ADD1F /* Helpers.swift */,
 				C2F6048223F973C500231F6E /* UI Elements */,
 				C223B4F023A00C70009ADD1F /* MicrophoneManager.swift */,
@@ -183,6 +183,35 @@
 				C246FDAA23FA7DE400A051E8 /* Localization.swift */,
 			);
 			path = NoteFall;
+			sourceTree = "<group>";
+		};
+		C23E6292240297860098186D /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				C23E62932402979D0098186D /* Assets */,
+				C271898423FF009E00CEF323 /* AudioManager.swift */,
+				C223B4F023A00C70009ADD1F /* MicrophoneSensitivity.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		C23E62932402979D0098186D /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C2ECAB1E240065F900ED466E /* background.wav */,
+				C2ECAB222401121800ED466E /* swoosh.mp3 */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		C23E6294240297C40098186D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C223B4D823A001D6009ADD1F /* AppDelegate.swift */,
+				C204582E23D8C10D00C1E82A /* GameManager.swift */,
+				C223B4E023A001D6009ADD1F /* GameViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		C25972E323A14D7A00A7AB0D /* GameScene */ = {
@@ -541,7 +570,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3;
+				MARKETING_VERSION = 2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thomasswatland.NoteFall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -563,7 +592,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3;
+				MARKETING_VERSION = 2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thomasswatland.NoteFall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
