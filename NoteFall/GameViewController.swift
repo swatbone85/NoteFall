@@ -1,6 +1,7 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import AVFoundation
 import GoogleMobileAds
 
 class GameViewController: UIViewController {
@@ -10,6 +11,8 @@ class GameViewController: UIViewController {
     fileprivate var bannerView: GADBannerView!
     
     fileprivate let adManager = AdManager.shared
+    
+    fileprivate let audioManager = AudioManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +81,13 @@ class GameViewController: UIViewController {
         alertController.addAction(okAction)
         
         present(alertController, animated: true, completion: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        try! AVAudioSession.sharedInstance().setAllowHapticsAndSystemSoundsDuringRecording(true)
+        audioManager.playBackgroundMusic()
     }
 
     override var shouldAutorotate: Bool {
