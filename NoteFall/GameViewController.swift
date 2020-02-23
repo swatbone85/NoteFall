@@ -1,14 +1,17 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class GameViewController: UIViewController {
     
     fileprivate var welcomeScene: SKScene!
+    
+    fileprivate let audioManager = AudioManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         if let view = self.view as! SKView? {
             
             if Device.isIpad {
@@ -25,6 +28,13 @@ class GameViewController: UIViewController {
             
             view.ignoresSiblingOrder = true
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        try! AVAudioSession.sharedInstance().setAllowHapticsAndSystemSoundsDuringRecording(true)
+        audioManager.playBackgroundMusic()
     }
 
     override var shouldAutorotate: Bool {
