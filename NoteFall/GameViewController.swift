@@ -8,9 +8,13 @@ class GameViewController: UIViewController {
     fileprivate var welcomeScene: SKScene!
     
     fileprivate var bannerView: GADBannerView!
+    
+    fileprivate var adManager = AdManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(loadInterstitial), name: Notification.Name("loadInterstitial"), object: nil)
         
         bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         bannerView.adUnitID = "ca-app-pub-1438547612946932/2924417094"
@@ -38,6 +42,18 @@ class GameViewController: UIViewController {
         }
         
         addBannerViewToView(bannerView)
+    }
+    
+    @objc func loadInterstitial() {
+        //Uncomment on production
+//        interstitialView = GADInterstitial(adUnitID: "ca-app-pub-1438547612946932/6539495953")
+        
+        //Test ad
+        adManager.interstitialView = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        adManager.interstitialView.delegate = self
+        let request = GADRequest()
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["ef91b843e3b249284ffb977f58620a83"]
+        adManager.interstitialView.load(request)
     }
 
     override var shouldAutorotate: Bool {
@@ -81,5 +97,11 @@ extension GameViewController: GADBannerViewDelegate {
     
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         addBannerViewToView(bannerView)
+    }
+}
+
+extension GameViewController: GADInterstitialDelegate {
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        ad.present(fromRootViewController: self)
     }
 }

@@ -33,7 +33,7 @@ class GameOverScene: SKScene {
             } else if Device.hasNotch {
                 welcomeScene = WelcomeScene(fileNamed: "WelcomeSceneNotch.sks")
             } else {
-            welcomeScene = WelcomeScene(fileNamed: "WelcomeScene.sks")
+                welcomeScene = WelcomeScene(fileNamed: "WelcomeScene.sks")
             }
             welcomeScene?.scaleMode = .aspectFill
             view?.presentScene(welcomeScene)
@@ -41,6 +41,8 @@ class GameOverScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        
+        AdManager.shared.loadAndPresentInterstitial()
         
         gameOverLabel = childNode(withName: "GameOverLabel") as? SKLabelNode
         gameOverLabel.text = Localization.gameOverTitle

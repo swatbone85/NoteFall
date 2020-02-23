@@ -22,6 +22,7 @@
 		C223B4E923A001D8009ADD1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C223B4E723A001D8009ADD1F /* LaunchScreen.storyboard */; };
 		C223B4F123A00C70009ADD1F /* MicrophoneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223B4F023A00C70009ADD1F /* MicrophoneManager.swift */; };
 		C223B4F323A01B6B009ADD1F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223B4F223A01B6B009ADD1F /* Helpers.swift */; };
+		C23E629624029D090098186D /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23E629524029D090098186D /* AdManager.swift */; };
 		C246FDA623FA78F900A051E8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C246FDA823FA78F900A051E8 /* Localizable.strings */; };
 		C246FDAB23FA7DE400A051E8 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246FDAA23FA7DE400A051E8 /* Localization.swift */; };
 		C25972E223A14BA100A7AB0D /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25972E123A14BA100A7AB0D /* GameOverScene.swift */; };
@@ -58,6 +59,7 @@
 		C223B4EA23A001D8009ADD1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C223B4F023A00C70009ADD1F /* MicrophoneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneManager.swift; sourceTree = "<group>"; };
 		C223B4F223A01B6B009ADD1F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		C23E629524029D090098186D /* AdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdManager.swift; sourceTree = "<group>"; };
 		C246FDA223FA787500A051E8 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Main.strings; sourceTree = "<group>"; };
 		C246FDA323FA787500A051E8 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C246FDA723FA78F900A051E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				C2F6048223F973C500231F6E /* UI Elements */,
 				C223B4F023A00C70009ADD1F /* MicrophoneManager.swift */,
 				C223B4E023A001D6009ADD1F /* GameViewController.swift */,
+				C23E629524029D090098186D /* AdManager.swift */,
 				C204582E23D8C10D00C1E82A /* GameManager.swift */,
 				C223B4E223A001D6009ADD1F /* Main.storyboard */,
 				C223B4E523A001D8009ADD1F /* Assets.xcassets */,
@@ -336,6 +339,7 @@
 				C223B4DF23A001D6009ADD1F /* GameScene.swift in Sources */,
 				C223B4F123A00C70009ADD1F /* MicrophoneManager.swift in Sources */,
 				C246FDAB23FA7DE400A051E8 /* Localization.swift in Sources */,
+				C23E629624029D090098186D /* AdManager.swift in Sources */,
 				C2F6048423F973D900231F6E /* ButtonNode.swift in Sources */,
 				C223B4E123A001D6009ADD1F /* GameViewController.swift in Sources */,
 				C223B4F323A01B6B009ADD1F /* Helpers.swift in Sources */,
