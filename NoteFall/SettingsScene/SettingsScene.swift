@@ -17,8 +17,7 @@ class SettingsScene: SKScene {
     fileprivate var muteButtonNode: SKSpriteNode!
     
     fileprivate let gameManager = GameManager.shared
-    fileprivate let microphoneManager = MicrophoneManager.shared
-    fileprivate let soundManager = SoundManager.shared
+    fileprivate let audioManager = AudioManager.shared
     
     private var transposition: Transposition!
     
@@ -31,7 +30,7 @@ class SettingsScene: SKScene {
         
         transposition = Transposition(rawValue: gameManager.transposition)
         
-        guard let image = UIImage(named: soundManager.isMuted ? "MuteIcon" : "SoundIcon")?.tinted(with: .darkGray) else { return }
+        guard let image = UIImage(named: audioManager.isMuted ? "MuteIcon" : "SoundIcon")?.tinted(with: .darkGray) else { return }
         let texture = SKTexture(image: image)
         muteButtonNode = childNode(withName: "MuteButton") as? SKSpriteNode
         muteButtonNode.texture = texture
@@ -56,7 +55,7 @@ class SettingsScene: SKScene {
         noAdsButton = ButtonNode(withText: Localization.removeAds)
         noAdsButton.position = CGPoint(x: 0, y: -460)
         
-        switch microphoneManager.sensitivity {
+        switch audioManager.sensitivity {
         case .low:
             microphoneLabel.text = Localization.microphoneSensitivityLow
         case .medium:
@@ -168,15 +167,15 @@ class SettingsScene: SKScene {
     }
     
     fileprivate func changeMicrophoneSensitivity() {
-        switch microphoneManager.sensitivity {
+        switch audioManager.sensitivity {
         case .low:
-            microphoneManager.sensitivity = .medium
+            audioManager.sensitivity = .medium
             microphoneLabel.text = Localization.microphoneSensitivityMedium
         case .medium:
-            microphoneManager.sensitivity = .high
+            audioManager.sensitivity = .high
             microphoneLabel.text = Localization.microphoneSensitivityHigh
         case .high:
-            microphoneManager.sensitivity = .low
+            audioManager.sensitivity = .low
             microphoneLabel.text = Localization.microphoneSensitivityLow
         case .none:
             break
@@ -186,8 +185,8 @@ class SettingsScene: SKScene {
     }
     
     fileprivate func toggleMuted() {
-        SoundManager.shared.isMuted.toggle()
-        guard let image = UIImage(named: soundManager.isMuted ? "MuteIcon" : "SoundIcon")?.tinted(with: .darkGray) else { return }
+        AudioManager.shared.isMuted.toggle()
+        guard let image = UIImage(named: audioManager.isMuted ? "MuteIcon" : "SoundIcon")?.tinted(with: .darkGray) else { return }
         let texture = SKTexture(image: image)
         muteButtonNode.texture = texture
         createHapticFeedback(style: .light)
