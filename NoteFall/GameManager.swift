@@ -16,4 +16,6 @@ class GameManager {
     }
     
     var highscore = UserDefaults.standard.integer(forKey: Defaults.highscore)
+    
+    private init() {}
 }

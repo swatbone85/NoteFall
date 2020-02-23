@@ -5,7 +5,7 @@ class GameScene: SKScene {
     
     fileprivate var gameOverScene: GameOverScene!
     
-    fileprivate let microphoneManager = MicrophoneManager.shared
+    fileprivate let audioManager = AudioManager.shared
     fileprivate let gameManager = GameManager.shared
     
     fileprivate var gameStarted = false
@@ -92,7 +92,6 @@ class GameScene: SKScene {
         
         createHapticFeedback(style: .light)
         
-        microphoneManager.setupMicrophone()
         highscoreTitle.position = CGPoint(x: 70, y: frame.height - 60)
         addChild(highscoreTitle)
         highscoreLabel.position = CGPoint(x: 70, y: frame.height - 110)
@@ -130,14 +129,15 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         
         if gameStarted {
+            print(audioManager.tracker.amplitude)
             noteLabel.position.y -= noteSpeed
-            if microphoneManager.tracker.amplitude > Double(microphoneManager.sensitivity!.rawValue) {
+            if audioManager.tracker.amplitude > Double(audioManager.sensitivity!.rawValue) {
                 if isPlaying { return }
                 isPlaying = true
                 for i in octaves {
                     let upperLimit = ((note.frequency*i)*transpositionFactor) * (1+(1-tolerance))
                     let lowerLimit = ((note.frequency*i)*transpositionFactor) * tolerance
-                    if microphoneManager.tracker.frequency < upperLimit && microphoneManager.tracker.frequency > lowerLimit {
+                    if audioManager.tracker.frequency < upperLimit && audioManager.tracker.frequency > lowerLimit {
                         incrementScore(by: 1)
                         destroy(noteLabel)
                         spawnNote()
@@ -145,7 +145,7 @@ class GameScene: SKScene {
                         return
                     }
                 }
-            } else if microphoneManager.tracker.amplitude < Double(microphoneManager.sensitivity!.rawValue) / 2 {
+            } else if audioManager.tracker.amplitude < Double(audioManager.sensitivity!.rawValue) / 2 {
                 isPlaying = false
             }
             
@@ -214,8 +214,6 @@ class GameScene: SKScene {
     
     fileprivate func endGame() {
         gameStarted = false
-        
-        microphoneManager.stop()
         
         createHapticFeedback(style: .heavy)
         
