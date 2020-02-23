@@ -9,7 +9,7 @@ struct Note {
     let frequency: Double
     
     static let naturalNotes:[Note] = [Note(name: "A", frequency: 110.00),
-                                      Note(name: "B", frequency: 123.47),
+                                      Note(name: Localization.b, frequency: 123.47),
                                       Note(name: "C", frequency: 130.81),
                                       Note(name: "D", frequency: 146.83),
                                       Note(name: "E", frequency: 164.81),
