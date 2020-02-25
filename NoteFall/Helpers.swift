@@ -37,6 +37,7 @@ struct Defaults {
     static let microphoneSensitivity = "microphoneSensitivity"
     static let noAdsPurchased = "noAdsPurchased"
     static let isMuted = "isMuted"
+    static let numberOfGames = "numberOfGames"
 }
 
 enum Transposition: String {
