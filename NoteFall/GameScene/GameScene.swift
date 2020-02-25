@@ -129,7 +129,6 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         
         if gameStarted {
-            print(audioManager.tracker.amplitude)
             noteLabel.position.y -= noteSpeed
             if audioManager.tracker.amplitude > Double(audioManager.sensitivity!.rawValue) {
                 if isPlaying { return }
@@ -216,6 +215,10 @@ class GameScene: SKScene {
         gameStarted = false
         
         createHapticFeedback(style: .heavy)
+        
+        gameManager.numberOfGames += 1
+        
+        gameManager.requestReview()
         
         if Device.isIpad {
             gameOverScene = GameOverScene(fileNamed: "GameOverScenePad.sks")

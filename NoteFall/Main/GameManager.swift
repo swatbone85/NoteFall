@@ -1,4 +1,5 @@
 import Foundation
+import StoreKit
 
 class GameManager {
     static let shared = GameManager()
@@ -16,6 +17,19 @@ class GameManager {
     }
     
     var highscore = UserDefaults.standard.integer(forKey: Defaults.highscore)
+    
+    var numberOfGames = UserDefaults.standard.integer(forKey: Defaults.numberOfGames) {
+        didSet {
+            UserDefaults.standard.set(numberOfGames, forKey: Defaults.numberOfGames)
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    func requestReview() {
+        if numberOfGames % 10 == 0 {
+            SKStoreReviewController.requestReview()
+        }
+    }
     
     private init() {}
 }
