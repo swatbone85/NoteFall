@@ -9,7 +9,7 @@ class GameViewController: UIViewController {
     
     fileprivate var bannerView: GADBannerView!
     
-    fileprivate var adManager = AdManager.shared
+    fileprivate let adManager = AdManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
