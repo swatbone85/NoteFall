@@ -117,6 +117,7 @@ class GameScene: SKScene {
             
             Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
                 self.count -= 1
+                self.audioManager.playSound(.countdown, fromNode: self.backgroundNode)
                 if self.count <= 0 {
                     self.startGame()
                     self.countdownLabel.removeFromParent()

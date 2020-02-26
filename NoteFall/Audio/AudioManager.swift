@@ -2,6 +2,14 @@ import Foundation
 import SpriteKit
 import AudioKit
 
+enum AudioAsset: String {
+    case backgroundMusic = "background"
+    case navigation = "Navigation.mp3"
+    case buttonClick = "ButtonClick.mp3"
+    case swoosh = "swoosh.mp3"
+    case countdown = "Countdown.mp3"
+}
+
 class AudioManager {
     static let shared = AudioManager()
 
@@ -16,7 +24,7 @@ class AudioManager {
         didSet {
             UserDefaults.standard.set(isMuted, forKey: Defaults.isMuted)
             
-            backgroundMusicPlayer.volume = isMuted ? 0 : 1
+            backgroundMusicPlayer.volume = isMuted ? 0 : 0.1
         }
     }
     
@@ -26,22 +34,22 @@ class AudioManager {
         }
     }
     
-    func playSound(fromFile file: String, fromNode node: SKNode) {
+    func playSound(_ asset: AudioAsset, fromNode node: SKNode) {
         if !isMuted {
-            node.run(SKAction.playSoundFileNamed(file, waitForCompletion: false))
+            node.run(SKAction.playSoundFileNamed(asset.rawValue, waitForCompletion: false))
         }
     }
     
     func playBackgroundMusic() {
         AudioKit.engine.reset()
         try! AudioKit.engine.start()
-        backgroundMusicPlayer.volume = isMuted ? 0 : 1
+        backgroundMusicPlayer.volume = isMuted ? 0 : 0.1
         backgroundMusicPlayer.play()
     }
     
     private init() {
         
-        guard let url = Bundle.main.url(forResource: "background", withExtension: "wav") else {
+        guard let url = Bundle.main.url(forResource: AudioAsset.backgroundMusic.rawValue, withExtension: "wav") else {
             print("Could not locate background music file.")
             return
         }

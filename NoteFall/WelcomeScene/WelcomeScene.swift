@@ -39,6 +39,8 @@ class WelcomeScene: SKScene {
         addChild(settingsButton)
     
         animate(titleLabel)
+        
+        AudioManager.shared.playSound(.navigation, fromNode: backgroundNode)
     }
     
     fileprivate func startGame() {
