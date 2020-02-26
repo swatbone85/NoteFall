@@ -92,23 +92,30 @@ class SettingsScene: SKScene {
         case false:
             accidentalsLabel.text = Localization.no
         }
+        
+        AudioManager.shared.playSound(.navigation, fromNode: backgroundNode)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         
         if backButton.contains(touch.location(in: self)) {
+            audioManager.playSound(.buttonClick, fromNode: backButton)
             goBackToMenu()
         } else if transpositionLabel.contains(touch.location(in: self)) {
+            audioManager.playSound(.buttonClick, fromNode: transpositionLabel)
             changeTransposition()
         } else if accidentalsLabel.contains(touch.location(in: self)) {
+            audioManager.playSound(.buttonClick, fromNode: accidentalsLabel)
             toggleAccidentals()
         } else if noAdsButton.contains(touch.location(in: self)) {
             didTapNoAdsButton()
         } else if microphoneLabel.contains(touch.location(in: self)) {
+            audioManager.playSound(.buttonClick, fromNode: microphoneLabel)
             changeMicrophoneSensitivity()
         } else if muteButtonNode.contains(touch.location(in: self)) {
             toggleMuted()
+            audioManager.playSound(.buttonClick, fromNode: muteButtonNode)
         }
     }
     
