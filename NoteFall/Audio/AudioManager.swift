@@ -8,7 +8,7 @@ class AudioManager {
     private let microphone = AKMicrophone()
     var tracker: AKFrequencyTracker!
     
-    var mixer: AKMixer!
+    private var mixer: AKMixer!
     
     fileprivate var backgroundMusicPlayer: AKPlayer!
     
