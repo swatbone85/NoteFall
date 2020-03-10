@@ -9,10 +9,10 @@ protocol AdManagerDelegate: class {
 class AdManager {
     static let shared = AdManager()
     
-    fileprivate var adCounter = 0
-    fileprivate let adFrequency = 3
+    private var adCounter = 0
+    private let adFrequency = 3
     
-    fileprivate var bannerView: GADBannerView!
+    private var bannerView: GADBannerView!
     var interstitialView: GADInterstitial!
     
     private init() {
@@ -22,7 +22,7 @@ class AdManager {
     
     func loadAndPresentInterstitial() {
         if adCounter % adFrequency == 0 {
-            NotificationCenter.default.post(name: Notification.Name("loadInterstitial"), object: nil)
+            NotificationCenter.default.post(name: .loadInterstitial, object: nil)
         }
         adCounter += 1
     }

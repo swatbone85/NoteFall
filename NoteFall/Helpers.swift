@@ -34,6 +34,7 @@ struct Defaults {
     static let highscore = "highscore"
     static let transposition = "transposition"
     static let useAccidentals = "useAccidentals"
+    static let noAdsPurchased = "noAdsPurchased"
 }
 
 enum Transposition: String {
@@ -68,4 +69,10 @@ func animate(_ node: SKLabelNode) {
     let scaleGroup = SKAction.sequence([scaleUpAction, scaleDownAction])
     let foreverAnimation = SKAction.repeatForever(scaleGroup)
     node.run(foreverAnimation)
+}
+
+extension NSNotification.Name {
+    static let removeAdsFailed = NSNotification.Name(rawValue: "removeAdsFailed")
+    static let loadInterstitial = NSNotification.Name(rawValue: "loadInterstitial")
+    static let removeAdsSucceeded = NSNotification.Name(rawValue: "removeAdsSucceeded")
 }

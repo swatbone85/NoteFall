@@ -20,7 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.isIdleTimerDisabled = true
         
-        GADMobileAds.sharedInstance().start()
+        if !IAPManager.shared.removeAdsPurchased {
+            GADMobileAds.sharedInstance().start()
+        }
+        
+        IAPManager.shared.fetchProducts()
         return true
     }
 

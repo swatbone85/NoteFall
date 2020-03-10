@@ -14,14 +14,11 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(loadInterstitial), name: Notification.Name("loadInterstitial"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadInterstitial), name: .loadInterstitial, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNotificationFromIAPManager(_:)), name: .removeAdsFailed, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(removeBannerAds), name: .removeAdsSucceeded, object: nil)
         
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        bannerView.adUnitID = "ca-app-pub-1438547612946932/2924417094"
-        bannerView.load(GADRequest())
-        bannerView.rootViewController = self
-        bannerView.delegate = self
-        
+        // Remove on production
         GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["ef91b843e3b249284ffb977f58620a83"]
         
         if let view = self.view as! SKView? {
@@ -41,19 +38,46 @@ class GameViewController: UIViewController {
             view.ignoresSiblingOrder = true
         }
         
-        addBannerViewToView(bannerView)
+        if !IAPManager.shared.removeAdsPurchased {
+            setupBannerView()
+            addBannerViewToView(bannerView)
+        }
+        
+    }
+    
+    private func setupBannerView() {
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView.adUnitID = "ca-app-pub-1438547612946932/2924417094"
+        bannerView.load(GADRequest())
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        
     }
     
     @objc func loadInterstitial() {
-        //Uncomment on production
-//        interstitialView = GADInterstitial(adUnitID: "ca-app-pub-1438547612946932/6539495953")
+        if !IAPManager.shared.removeAdsPurchased {
+            //Uncomment on production
+            //        interstitialView = GADInterstitial(adUnitID: "ca-app-pub-1438547612946932/6539495953")
+                    
+                    //Test ad
+                    adManager.interstitialView = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+                    adManager.interstitialView.delegate = self
+                    let request = GADRequest()
+                    GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["ef91b843e3b249284ffb977f58620a83"]
+                    adManager.interstitialView.load(request)
+        }
+    }
+    
+    @objc private func removeBannerAds() {
+        bannerView.removeFromSuperview()
+    }
+    
+    @objc private func didReceiveNotificationFromIAPManager(_ notification: Notification) {
+        let alertController = UIAlertController(title: Localization.purchaseFailed, message: notification.userInfo!["error"] as? String, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: Localization.ok, style: .default, handler: nil)
+        alertController.addAction(okAction)
         
-        //Test ad
-        adManager.interstitialView = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
-        adManager.interstitialView.delegate = self
-        let request = GADRequest()
-        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["ef91b843e3b249284ffb977f58620a83"]
-        adManager.interstitialView.load(request)
+        present(alertController, animated: true, completion: nil)
     }
 
     override var shouldAutorotate: Bool {

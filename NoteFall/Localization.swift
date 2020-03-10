@@ -13,4 +13,6 @@ struct Localization {
     static let yes = NSLocalizedString("Yes", comment: "This one kinda speaks for itself")
     static let no = NSLocalizedString("No", comment: "This one kinda speaks for itself")
     static let removeAds = NSLocalizedString("Remove Ads", comment: "Button used to pay to remove ads")
+    static let purchaseFailed = NSLocalizedString("Purchase failed", comment: "Purchasing the In-App Purchase failed")
+    static let ok = NSLocalizedString("OK", comment: "A general OK button")
 }

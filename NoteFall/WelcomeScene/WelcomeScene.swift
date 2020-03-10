@@ -9,6 +9,8 @@ class WelcomeScene: SKScene {
     
     fileprivate var settingsScene: SKScene!
     
+    private var iapManager = IAPManager.shared
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         if startButton.contains(touch.location(in: self)) {

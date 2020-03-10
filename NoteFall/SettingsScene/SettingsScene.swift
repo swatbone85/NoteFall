@@ -2,20 +2,21 @@ import SpriteKit
 
 class SettingsScene: SKScene {
     
-    fileprivate var backButton: ButtonNode!
-    fileprivate var noAdsButton: ButtonNode!
-    fileprivate var transpositionLabel: SKLabelNode!
-    fileprivate var accidentalsLabel: SKLabelNode!
-    fileprivate var backgroundNode: SKSpriteNode!
+    private var backButton: ButtonNode!
+    private var noAdsButton: ButtonNode!
+    private var transpositionLabel: SKLabelNode!
+    private var accidentalsLabel: SKLabelNode!
+    private var backgroundNode: SKSpriteNode!
     
-    fileprivate let gameManager = GameManager.shared
+    private let gameManager = GameManager.shared
+    private let iapManager = IAPManager.shared
     
-    fileprivate var transposition: Transposition!
+    private var transposition: Transposition!
     
-    fileprivate var welcomeScene: SKScene!
+    private var welcomeScene: SKScene!
     
-    fileprivate var transpositionTitle: SKLabelNode!
-    fileprivate var accidentalsTitle: SKLabelNode!
+    private var transpositionTitle: SKLabelNode!
+    private var accidentalsTitle: SKLabelNode!
     
     override func didMove(to view: SKView) {
         
@@ -42,7 +43,10 @@ class SettingsScene: SKScene {
         }
         
         addChild(backButton)
-        addChild(noAdsButton)
+        
+        if !iapManager.removeAdsPurchased {
+            addChild(noAdsButton)
+        }
         
         transpositionLabel = childNode(withName: "TranspositionLabel") as? SKLabelNode
         transpositionLabel.text = gameManager.transposition
@@ -67,6 +71,8 @@ class SettingsScene: SKScene {
             changeTransposition()
         } else if accidentalsLabel.contains(touch.location(in: self)) {
             toggleAccidentals()
+        } else if noAdsButton.contains(touch.location(in: self)) {
+            didTapNoAdsButton()
         }
     }
     
@@ -84,6 +90,12 @@ class SettingsScene: SKScene {
         }
         welcomeScene?.scaleMode = .aspectFill
         view?.presentScene(welcomeScene)
+    }
+    
+    private func didTapNoAdsButton() {
+        if iapManager.canMakePayments {
+            iapManager.purchaseNoAds()
+        }
     }
     
     fileprivate func changeTransposition() {

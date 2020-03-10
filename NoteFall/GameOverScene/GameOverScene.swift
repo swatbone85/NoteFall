@@ -66,7 +66,7 @@ class GameOverScene: SKScene {
         backToMenuButton.position = CGPoint(x: 0, y: -260)
         
         if !Device.isIpad {
-           tryAgainButton.setScale(3)
+            tryAgainButton.setScale(3)
             backToMenuButton.setScale(3)
         }
         
