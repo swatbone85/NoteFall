@@ -10,13 +10,10 @@ class SettingsScene: SKScene {
     fileprivate var microphoneTitle: SKLabelNode!
     fileprivate var microphoneLabel: SKLabelNode!
     
-    fileprivate var backgroundNode: SKSpriteNode!
-    
     private let gameManager = GameManager.shared
     private let iapManager = IAPManager.shared
     fileprivate var muteButtonNode: SKSpriteNode!
     
-    fileprivate let gameManager = GameManager.shared
     fileprivate let audioManager = AudioManager.shared
     
     private var transposition: Transposition!
@@ -109,6 +106,7 @@ class SettingsScene: SKScene {
             audioManager.playSound(.buttonClick, fromNode: accidentalsLabel)
             toggleAccidentals()
         } else if noAdsButton.contains(touch.location(in: self)) {
+            audioManager.playSound(.buttonClick, fromNode: noAdsButton)
             didTapNoAdsButton()
         } else if microphoneLabel.contains(touch.location(in: self)) {
             audioManager.playSound(.buttonClick, fromNode: microphoneLabel)
