@@ -1,6 +1,10 @@
 import Foundation
 import AudioKit
 
+enum MicrophoneSensitivity {
+    case low, med, high
+}
+
 class MicrophoneManager {
     
     static let shared = MicrophoneManager()
