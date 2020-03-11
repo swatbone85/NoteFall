@@ -15,4 +15,8 @@ struct Localization {
     static let removeAds = NSLocalizedString("Remove Ads", comment: "Button used to pay to remove ads")
     static let purchaseFailed = NSLocalizedString("Purchase failed", comment: "Purchasing the In-App Purchase failed")
     static let ok = NSLocalizedString("OK", comment: "A general OK button")
+    static let microphoneSensitivityTitle = NSLocalizedString("Microphone sensitivity", comment: "Adjusting the microphone sensitivity level")
+    static let microphoneSensitivityHigh = NSLocalizedString("High", comment: "The highest level of microphone sensitivity")
+    static let microphoneSensitivityMedium = NSLocalizedString("Medium", comment: "Medium level of microphone sensitivity")
+    static let microphoneSensitivityLow = NSLocalizedString("Low", comment: "The lowest level of microphone sensitivity")
 }
