@@ -25,6 +25,8 @@ class SettingsScene: SKScene {
     
     override func didMove(to view: SKView) {
         
+        NotificationCenter.default.addObserver(self, selector: #selector(removeNoAdsButton), name: .removeAdsSucceeded, object: nil)
+        
         transposition = Transposition(rawValue: gameManager.transposition)
         
         guard let image = UIImage(named: audioManager.isMuted ? "MuteIcon" : "SoundIcon")?.tinted(with: .darkGray) else { return }
@@ -115,6 +117,11 @@ class SettingsScene: SKScene {
             toggleMuted()
             audioManager.playSound(.buttonClick, fromNode: muteButtonNode)
         }
+    }
+    
+    @objc
+    private func removeNoAdsButton() {
+        noAdsButton.removeFromParent()
     }
     
     fileprivate func goBackToMenu() {
