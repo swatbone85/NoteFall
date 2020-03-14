@@ -87,7 +87,7 @@ class GameViewController: UIViewController {
         super.viewDidAppear(animated)
         
         try! AVAudioSession.sharedInstance().setAllowHapticsAndSystemSoundsDuringRecording(true)
-        audioManager.playBackgroundMusic()
+//        audioManager.playBackgroundMusic()ra
     }
 
     override var shouldAutorotate: Bool {

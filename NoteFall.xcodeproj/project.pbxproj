@@ -130,6 +130,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C2020232241A407B00A1C1EA /* Success sounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Success sounds";
+			sourceTree = "<group>";
+		};
 		C20D1BC523ABF77700C994E8 /* WelcomeScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +204,7 @@
 		C23E62932402979D0098186D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				C2020232241A407B00A1C1EA /* Success sounds */,
 				C2ECAB1E240065F900ED466E /* background.wav */,
 				C23E62B7240637860098186D /* Navigation.mp3 */,
 				C23E62BB24063F6B0098186D /* Countdown.mp3 */,

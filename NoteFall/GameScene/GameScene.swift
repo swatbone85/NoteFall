@@ -19,8 +19,6 @@ class GameScene: SKScene {
     
     fileprivate var numberOfLives = 3
     
-    fileprivate var notes: [Note]!
-    
     fileprivate var note: Note!
     
     fileprivate var lifeNodes = [SKNode]()
@@ -56,7 +54,6 @@ class GameScene: SKScene {
     fileprivate let highscoreLabel = ScoreLabel(text: String(UserDefaults.standard.integer(forKey: Defaults.highscore)), fontSize: 36)
     
     fileprivate var transposition: Transposition!
-    fileprivate var transpositionFactor: Double = 1
     
     override func didMove(to view: SKView) {
         
@@ -70,25 +67,6 @@ class GameScene: SKScene {
         
         scoreTitle = ScoreLabel(text: Localization.scoreLabel, fontSize: 24)
         highscoreTitle = ScoreLabel(text: Localization.highscoreLabel, fontSize: 24)
-        
-        notes = Note.naturalNotes
-        if gameManager.useAccidentals {
-            notes += Note.flatNotes
-            notes += Note.sharpNotes
-        }
-        
-        switch transposition {
-        case .C:
-            transpositionFactor = 1
-        case .Bb:
-            transpositionFactor = 130.81 / 146.83
-        case .Eb:
-            transpositionFactor = 116.54 / 196.00
-        case .F:
-            transpositionFactor = 130.31 / 196.00
-        case .none:
-            transpositionFactor = 1
-        }
         
         createHapticFeedback(style: .light)
         
@@ -135,8 +113,8 @@ class GameScene: SKScene {
                 if isPlaying { return }
                 isPlaying = true
                 for i in octaves {
-                    let upperLimit = ((note.frequency*i)*transpositionFactor) * (1+(1-tolerance))
-                    let lowerLimit = ((note.frequency*i)*transpositionFactor) * tolerance
+                    let upperLimit = (note.frequency*i) * (1+(1-tolerance))
+                    let lowerLimit = (note.frequency*i) * tolerance
                     if audioManager.tracker.frequency < upperLimit && audioManager.tracker.frequency > lowerLimit {
                         incrementScore(by: 1)
                         destroy(noteLabel)
@@ -160,7 +138,7 @@ class GameScene: SKScene {
     }
     
     fileprivate func spawnNote() {
-        note = notes.randomElement()!
+        note = Note.getRandom(withTransposition: Transposition(rawValue: gameManager.transposition))
         let animationDuration: Double = 1.4
         let initialRotation: CGFloat = .pi * 0.9
         noteLabel.position = CGPoint(x: frame.midX, y: frame.maxY)
@@ -180,6 +158,10 @@ class GameScene: SKScene {
             particles.position = node.position
             addChild(particles)
         }
+        
+        let fileSuffix = String((Int(note.frequency.rounded())))
+        print(fileSuffix)
+        backgroundNode.run(SKAction.playSoundFileNamed("success_"+fileSuffix+".mp3", waitForCompletion: false))
         
         node.removeFromParent()
         node.removeAllActions()

@@ -6,28 +6,48 @@ let octaves:[Double] = [1, 2, 4, 8]
 
 struct Note {
     let name: String
-    let frequency: Double
+    var frequency: Double
     
-    static let naturalNotes:[Note] = [Note(name: "A", frequency: 110.00),
-                                      Note(name: Localization.b, frequency: 123.47),
-                                      Note(name: "C", frequency: 130.81),
-                                      Note(name: "D", frequency: 146.83),
-                                      Note(name: "E", frequency: 164.81),
-                                      Note(name: "F", frequency: 174.61),
-                                      Note(name: "G", frequency: 196.00)]
+    static let notes: [Note] = [Note(name: "A", frequency: 110.00),
+                                Note(name: "A#", frequency: 116.54),
+                                Note(name: "Bb", frequency: 116.54),
+                                Note(name: Localization.b, frequency: 123.47),
+                                Note(name: "C", frequency: 130.81),
+                                Note(name: "C#", frequency: 138.59),
+                                Note(name: "Db", frequency: 138.59),
+                                Note(name: "D", frequency: 146.83),
+                                Note(name: "D#", frequency: 155.56),
+                                Note(name: "Eb", frequency: 155.56),
+                                Note(name: "E", frequency: 164.81),
+                                Note(name: "F", frequency: 174.61),
+                                Note(name: "F#", frequency: 185.00),
+                                Note(name: "Gb", frequency: 185.00),
+                                Note(name: "G", frequency: 196.00),
+                                Note(name: "G#", frequency: 207.65),
+                                Note(name: "Ab", frequency: 207.65)]
     
-    static let flatNotes:[Note] = [Note(name: "Bb", frequency: 116.54),
-                                   Note(name: "Db", frequency: 138.59),
-                                   Note(name: "Eb", frequency: 155.56),
-                                   Note(name: "Gb", frequency: 185.00),
-                                   Note(name: "Ab", frequency: 207.65)]
-    
-    static let sharpNotes:[Note] = [Note(name: "A#", frequency: 116.54),
-                                    Note(name: "C#", frequency: 138.59),
-                                    Note(name: "D#", frequency: 155.56),
-                                    Note(name: "F#", frequency: 185.00),
-                                    Note(name: "G#", frequency: 207.65)]
-    
+    static func getRandom(withTransposition transposition: Transposition? = .C) -> Note {
+        
+        var transpositionFactor: Double = 1
+        var note = GameManager.shared.useAccidentals
+            ? notes.randomElement()!
+            : notes.filter({$0.name.count == 1}).randomElement()!
+        switch transposition {
+        case .C:
+            transpositionFactor = 1
+        case .Bb:
+            transpositionFactor = 130.81 / 146.83
+        case .Eb:
+            transpositionFactor = 116.54 / 196.00
+        case .F:
+            transpositionFactor = 130.31 / 196.00
+        case .none:
+            transpositionFactor = 1
+        }
+        note.frequency *= transpositionFactor
+        
+        return note
+    }
 }
 
 struct Defaults {
