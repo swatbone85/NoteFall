@@ -43,7 +43,7 @@ class GameViewController: UIViewController {
         
         if !IAPManager.shared.removeAdsPurchased {
             setupBannerView()
-//            addBannerViewToView(bannerView)
+            addBannerViewToView(bannerView)
         }
         
     }
