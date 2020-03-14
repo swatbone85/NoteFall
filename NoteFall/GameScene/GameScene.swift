@@ -117,7 +117,7 @@ class GameScene: SKScene {
                     let lowerLimit = (note.frequency*i) * tolerance
                     if audioManager.tracker.frequency < upperLimit && audioManager.tracker.frequency > lowerLimit {
                         incrementScore(by: 1)
-                        destroy(noteLabel)
+                        destroy(noteLabel, success: true)
                         spawnNote()
                         
                         return
@@ -152,16 +152,20 @@ class GameScene: SKScene {
         addChild(noteLabel)
     }
     
-    fileprivate func destroy(_ node: SKNode) {
+    fileprivate func destroy(_ node: SKNode, success: Bool) {
         
         if let particles = SKEmitterNode(fileNamed: "explosion.sks") {
             particles.position = node.position
             addChild(particles)
         }
         
-        let fileSuffix = String((Int(note.frequency.rounded())))
-        print(fileSuffix)
-        backgroundNode.run(SKAction.playSoundFileNamed("success_"+fileSuffix+".mp3", waitForCompletion: false))
+        if success {
+            let fileSuffix = String((Int(note.frequency.rounded())))
+            print(fileSuffix)
+            backgroundNode.run(SKAction.playSoundFileNamed("success_"+fileSuffix+".mp3", waitForCompletion: false))
+        } else {
+            audioManager.playSound(.swoosh, fromNode: backgroundNode)
+        }
         
         node.removeFromParent()
         node.removeAllActions()
@@ -183,7 +187,7 @@ class GameScene: SKScene {
     
     fileprivate func decreaseLife() {
         numberOfLives -= 1
-        destroy(noteLabel)
+        destroy(noteLabel, success: false)
         lifeNodes.last?.removeFromParent()
         lifeNodes.removeLast()
         spawnNote()
