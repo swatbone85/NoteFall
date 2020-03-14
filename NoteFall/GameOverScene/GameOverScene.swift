@@ -7,6 +7,9 @@ class GameOverScene: SKScene {
     private var scoreLabel: SKLabelNode!
     private var highscoreLabel: SKLabelNode!
     
+    private var scoreTitleLabel: SKLabelNode!
+    private var highscoreTitleLabel: SKLabelNode!
+    
     private var tryAgainButton: ButtonNode!
     private var backToMenuButton: ButtonNode!
     private var backgroundNode: SKSpriteNode!
@@ -52,11 +55,15 @@ class GameOverScene: SKScene {
         backgroundNode.zPosition = Layer.background
         
         scoreLabel = childNode(withName: "ScoreLabel") as? SKLabelNode
-        scoreLabel.text = Localization.scoreLabel
         scoreLabel.text = String(score)
         
+        scoreTitleLabel = childNode(withName: "ScoreTitleLabel") as? SKLabelNode
+        scoreTitleLabel.text = Localization.scoreLabel
+        
+        highscoreTitleLabel = childNode(withName: "HighscoreTitleLabel") as? SKLabelNode
+        highscoreTitleLabel.text = Localization.highscoreLabel
+        
         highscoreLabel = childNode(withName: "HighscoreLabel") as? SKLabelNode
-        highscoreLabel.text = Localization.highscoreLabel
         highscoreLabel.text = String(GameManager.shared.highscore)
         
         tryAgainButton = ButtonNode(withText: Localization.tryAgainButtonTitle)
