@@ -22,7 +22,7 @@ class GameViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(removeBannerAds), name: .removeAdsSucceeded, object: nil)
         
         // Remove on production
-        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["ef91b843e3b249284ffb977f58620a83"]
+//        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["ef91b843e3b249284ffb977f58620a83"]
         
         if let view = self.view as! SKView? {
             
@@ -43,7 +43,7 @@ class GameViewController: UIViewController {
         
         if !IAPManager.shared.removeAdsPurchased {
             setupBannerView()
-            addBannerViewToView(bannerView)
+//            addBannerViewToView(bannerView)
         }
         
     }
@@ -60,13 +60,13 @@ class GameViewController: UIViewController {
     @objc func loadInterstitial() {
         if !IAPManager.shared.removeAdsPurchased {
             //Uncomment on production
-            //        interstitialView = GADInterstitial(adUnitID: "ca-app-pub-1438547612946932/6539495953")
+            adManager.interstitialView = GADInterstitial(adUnitID: "ca-app-pub-1438547612946932/6539495953")
                     
                     //Test ad
-                    adManager.interstitialView = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+//                    adManager.interstitialView = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
                     adManager.interstitialView.delegate = self
                     let request = GADRequest()
-                    GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["ef91b843e3b249284ffb977f58620a83"]
+//                    GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["ef91b843e3b249284ffb977f58620a83"]
                     adManager.interstitialView.load(request)
         }
     }
