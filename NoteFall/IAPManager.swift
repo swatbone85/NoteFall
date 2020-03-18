@@ -46,6 +46,10 @@ class IAPManager: NSObject {
         productsRequest.start()
     }
     
+    func restoreProducts() {
+        SKPaymentQueue.default().restoreCompletedTransactions()
+    }
+    
     func getPriceFormatted(for product: SKProduct) -> String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency

@@ -20,4 +20,5 @@ struct Localization {
     static let microphoneSensitivityMedium = NSLocalizedString("Medium", comment: "Medium level of microphone sensitivity")
     static let microphoneSensitivityLow = NSLocalizedString("Low", comment: "The lowest level of microphone sensitivity")
     static let b = NSLocalizedString("B", comment: "The note B. This is H in Norwegian")
+    static let restorePurchases = NSLocalizedString("Restore purchases", comment: "The button to restore previous purchases")
 }

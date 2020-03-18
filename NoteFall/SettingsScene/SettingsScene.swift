@@ -10,6 +10,8 @@ class SettingsScene: SKScene {
     fileprivate var microphoneTitle: SKLabelNode!
     fileprivate var microphoneLabel: SKLabelNode!
     
+    private var restorePurchasesButton: SKLabelNode!
+    
     private let gameManager = GameManager.shared
     private let iapManager = IAPManager.shared
     fileprivate var muteButtonNode: SKSpriteNode!
@@ -33,6 +35,9 @@ class SettingsScene: SKScene {
         let texture = SKTexture(image: image)
         muteButtonNode = childNode(withName: "MuteButton") as? SKSpriteNode
         muteButtonNode.texture = texture
+        
+        restorePurchasesButton = childNode(withName: "RestorePurchasesLabel") as? SKLabelNode
+        restorePurchasesButton.text = Localization.restorePurchases
         
         backgroundNode = childNode(withName: "Background") as? SKSpriteNode
         backgroundNode.zPosition = Layer.background
@@ -116,6 +121,8 @@ class SettingsScene: SKScene {
         } else if muteButtonNode.contains(touch.location(in: self)) {
             toggleMuted()
             audioManager.playSound(.buttonClick, fromNode: muteButtonNode)
+        } else if restorePurchasesButton.contains(touch.location(in: self)) {
+            iapManager.restoreProducts()
         }
     }
     
