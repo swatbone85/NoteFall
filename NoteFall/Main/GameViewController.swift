@@ -72,7 +72,8 @@ class GameViewController: UIViewController {
     }
     
     @objc private func removeBannerAds() {
-        bannerView.removeFromSuperview()
+        guard let bv = bannerView else { return }
+        bv.removeFromSuperview()
     }
     
     @objc private func didReceiveNotificationFromIAPManager(_ notification: Notification) {
