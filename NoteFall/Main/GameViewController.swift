@@ -19,6 +19,8 @@ class GameViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadInterstitial), name: .loadInterstitial, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNotificationFromIAPManager(_:)), name: .removeAdsFailed, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNotificationFromIAPManager(_:)), name: .restorePurchasesTapped, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNotificationFromIAPManager(_:)), name: .restorePurchasesSucceeded, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(removeBannerAds), name: .removeAdsSucceeded, object: nil)
         
         // Remove on production
@@ -77,18 +79,36 @@ class GameViewController: UIViewController {
     }
     
     @objc private func didReceiveNotificationFromIAPManager(_ notification: Notification) {
-        let alertController = UIAlertController(title: Localization.purchaseFailed, message: notification.userInfo!["error"] as? String, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: Localization.ok, style: .default, handler: nil)
-        alertController.addAction(okAction)
-        
-        present(alertController, animated: true, completion: nil)
+        if notification.name == .removeAdsFailed {
+            let alertController = UIAlertController(title: Localization.purchaseFailed, message: notification.userInfo!["error"] as? String, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: Localization.ok, style: .default, handler: nil)
+            alertController.addAction(okAction)
+            
+            present(alertController, animated: true, completion: nil)
+        } else if notification.name == .restorePurchasesTapped {
+            let alertController = UIAlertController(title: Localization.restorePurchases+"?", message: Localization.restorePurchasesText, preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: Localization.yes, style: .default) { _ in
+                IAPManager.shared.restoreProducts()
+            }
+            let noAction = UIAlertAction(title: Localization.no, style: .cancel, handler: nil)
+            alertController.addAction(yesAction)
+            alertController.addAction(noAction)
+            
+            present(alertController, animated: true, completion: nil)
+        } else if notification.name == .restorePurchasesSucceeded {
+            let alertController = UIAlertController(title: Localization.purchasesRestored, message: Localization.purchasesRestoredText, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: Localization.ok, style: .default, handler: nil)
+            alertController.addAction(okAction)
+            
+            present(alertController, animated: true, completion: nil)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         try! AVAudioSession.sharedInstance().setAllowHapticsAndSystemSoundsDuringRecording(true)
-//        audioManager.playBackgroundMusic()ra
+//        audioManager.playBackgroundMusic()
     }
 
     override var shouldAutorotate: Bool {

@@ -122,7 +122,7 @@ class SettingsScene: SKScene {
             toggleMuted()
             audioManager.playSound(.buttonClick, fromNode: muteButtonNode)
         } else if restorePurchasesButton.contains(touch.location(in: self)) {
-            iapManager.restoreProducts()
+            didTapRestorePurchases()
         }
     }
     
@@ -201,6 +201,12 @@ class SettingsScene: SKScene {
         }
         
         createHapticFeedback(style: .light)
+    }
+    
+    private func didTapRestorePurchases() {
+        createHapticFeedback(style: .light)
+        
+        NotificationCenter.default.post(name: .restorePurchasesTapped, object: nil)
     }
     
     fileprivate func toggleMuted() {

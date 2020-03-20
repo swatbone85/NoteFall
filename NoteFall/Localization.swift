@@ -21,4 +21,7 @@ struct Localization {
     static let microphoneSensitivityLow = NSLocalizedString("Low", comment: "The lowest level of microphone sensitivity")
     static let b = NSLocalizedString("B", comment: "The note B. This is H in Norwegian")
     static let restorePurchases = NSLocalizedString("Restore purchases", comment: "The button to restore previous purchases")
+    static let restorePurchasesText = NSLocalizedString("Are you sure you want to restore all previous purchases?", comment: "If the user deletes the app / get's a new device etc, this button can be pressed to restore all previous purchases")
+    static let purchasesRestored = NSLocalizedString("Purchases restored successfully!", comment: "Title for Purchases restored successfully dialogue box")
+    static let purchasesRestoredText = NSLocalizedString("All previous purchases have been restored.", comment: "Body for Purchases restored successfully dialogue box")
 }

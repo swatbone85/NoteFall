@@ -95,9 +95,11 @@ func animate(_ node: SKLabelNode) {
 }
 
 extension NSNotification.Name {
-    static let removeAdsFailed = NSNotification.Name(rawValue: "removeAdsFailed")
-    static let loadInterstitial = NSNotification.Name(rawValue: "loadInterstitial")
-    static let removeAdsSucceeded = NSNotification.Name(rawValue: "removeAdsSucceeded")
+    static let removeAdsFailed = NSNotification.Name("removeAdsFailed")
+    static let loadInterstitial = NSNotification.Name("loadInterstitial")
+    static let removeAdsSucceeded = NSNotification.Name("removeAdsSucceeded")
+    static let restorePurchasesTapped = NSNotification.Name("restorePurchasesTapped")
+    static let restorePurchasesSucceeded = NSNotification.Name("restorePurchasesSucceeded")
 }
 
 extension UIImage {

@@ -76,6 +76,7 @@ extension IAPManager: SKPaymentTransactionObserver {
                 queue.finishTransaction(transaction)
                 removeAdsPurchased = true
                 NotificationCenter.default.post(name: .removeAdsSucceeded, object: nil)
+                NotificationCenter.default.post(name: .restorePurchasesSucceeded, object: nil)
             case .deferred, .purchasing:
                 break
             @unknown default:
