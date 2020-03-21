@@ -1,7 +1,10 @@
 import SpriteKit
+
 class GameOverScene: SKScene {
     
     private let gameManager = GameManager.shared
+    private let gameCenterManager = GameCenterManager.shared
+    private let adManager = AdManager.shared
     
     private var gameOverLabel: SKLabelNode!
     private var scoreLabel: SKLabelNode!
@@ -45,7 +48,8 @@ class GameOverScene: SKScene {
     
     override func didMove(to view: SKView) {
         
-        AdManager.shared.loadAndPresentInterstitial()
+        adManager.loadAndPresentInterstitial()
+        gameCenterManager.addToLeaderboard()
         
         gameOverLabel = childNode(withName: "GameOverLabel") as? SKLabelNode
         gameOverLabel.text = Localization.gameOverTitle

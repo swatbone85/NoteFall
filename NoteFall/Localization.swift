@@ -24,4 +24,5 @@ struct Localization {
     static let restorePurchasesText = NSLocalizedString("Are you sure you want to restore all previous purchases?", comment: "If the user deletes the app / get's a new device etc, this button can be pressed to restore all previous purchases")
     static let purchasesRestored = NSLocalizedString("Purchases restored successfully!", comment: "Title for Purchases restored successfully dialogue box")
     static let purchasesRestoredText = NSLocalizedString("All previous purchases have been restored.", comment: "Body for Purchases restored successfully dialogue box")
+    static let leaderboardsTitle = NSLocalizedString("Leaderboards", comment: "Button title for Game Center leaderboards")
 }

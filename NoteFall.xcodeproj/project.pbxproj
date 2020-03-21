@@ -65,6 +65,8 @@
 		C2AAB2502418A0E400F7ECF3 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AAB24F2418A0E400F7ECF3 /* GameManager.swift */; };
 		C2B9DB5A23D97C69005B5868 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2B9DB5923D97C69005B5868 /* GameOverScene.sks */; };
 		C2CF9CE524209D1E0031B7B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2CF9CE724209D1E0031B7B7 /* InfoPlist.strings */; };
+		C2D1FE3724265840003672C2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D1FE3624265840003672C2 /* GameKit.framework */; };
+		C2D1FE392426A861003672C2 /* GameCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D1FE382426A861003672C2 /* GameCenterManager.swift */; };
 		C2D8883323DC5FA500E09433 /* SettingsSceneNotch.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2D8883223DC5FA500E09433 /* SettingsSceneNotch.sks */; };
 		C2D8883523DC644C00E09433 /* SettingsScenePad.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2D8883423DC644C00E09433 /* SettingsScenePad.sks */; };
 		C2D8883723DC959600E09433 /* GameOverSceneNotch.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2D8883623DC959500E09433 /* GameOverSceneNotch.sks */; };
@@ -142,6 +144,8 @@
 		C2B9DB5923D97C69005B5868 /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
 		C2CF9CE624209D1E0031B7B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C2CF9CE824209D210031B7B7 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C2D1FE3624265840003672C2 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		C2D1FE382426A861003672C2 /* GameCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterManager.swift; sourceTree = "<group>"; };
 		C2D8883223DC5FA500E09433 /* SettingsSceneNotch.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SettingsSceneNotch.sks; sourceTree = "<group>"; };
 		C2D8883423DC644C00E09433 /* SettingsScenePad.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SettingsScenePad.sks; sourceTree = "<group>"; };
 		C2D8883623DC959500E09433 /* GameOverSceneNotch.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverSceneNotch.sks; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2D1FE3724265840003672C2 /* GameKit.framework in Frameworks */,
 				FC10482C4D29CFD069A510E6 /* Pods_NoteFall.framework in Frameworks */,
 				C2A3B94924120EDA00FA900F /* StoreKit.framework in Frameworks */,
 			);
@@ -170,6 +175,7 @@
 		94A63942641468ABF223887E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2D1FE3624265840003672C2 /* GameKit.framework */,
 				C2A3B94824120EDA00FA900F /* StoreKit.framework */,
 				D83D0E79CB6B14E1C899F062 /* Pods_NoteFall.framework */,
 			);
@@ -302,6 +308,7 @@
 				C223B4D823A001D6009ADD1F /* AppDelegate.swift */,
 				C223B4E023A001D6009ADD1F /* GameViewController.swift */,
 				C2AAB24F2418A0E400F7ECF3 /* GameManager.swift */,
+				C2D1FE382426A861003672C2 /* GameCenterManager.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -519,6 +526,7 @@
 				C23E629624029D090098186D /* AdManager.swift in Sources */,
 				C2F6048423F973D900231F6E /* ButtonNode.swift in Sources */,
 				C223B4E123A001D6009ADD1F /* GameViewController.swift in Sources */,
+				C2D1FE392426A861003672C2 /* GameCenterManager.swift in Sources */,
 				C223B4F323A01B6B009ADD1F /* Helpers.swift in Sources */,
 				C2AAB24E2418A0C600F7ECF3 /* AudioManager.swift in Sources */,
 				C2838CB123A91D440014FE0C /* ScoreLabel.swift in Sources */,
@@ -701,7 +709,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.11;
+				MARKETING_VERSION = 2.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thomasswatland.NoteFall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -723,7 +731,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.11;
+				MARKETING_VERSION = 2.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thomasswatland.NoteFall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

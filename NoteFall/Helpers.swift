@@ -100,6 +100,7 @@ extension NSNotification.Name {
     static let removeAdsSucceeded = NSNotification.Name("removeAdsSucceeded")
     static let restorePurchasesTapped = NSNotification.Name("restorePurchasesTapped")
     static let restorePurchasesSucceeded = NSNotification.Name("restorePurchasesSucceeded")
+    static let showLeaderboards = NSNotification.Name("showLeaderboards")
 }
 
 extension UIImage {

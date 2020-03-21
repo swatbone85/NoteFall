@@ -3,16 +3,19 @@ import SpriteKit
 import GameplayKit
 import AVFoundation
 import GoogleMobileAds
+import GameKit
 
 class GameViewController: UIViewController {
+         
+    var score = 0
     
     fileprivate var welcomeScene: SKScene!
     
     fileprivate var bannerView: GADBannerView!
     
     fileprivate let adManager = AdManager.shared
-    
     fileprivate let audioManager = AudioManager.shared
+    private let gameCenterManager = GameCenterManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,7 @@ class GameViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNotificationFromIAPManager(_:)), name: .restorePurchasesTapped, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNotificationFromIAPManager(_:)), name: .restorePurchasesSucceeded, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(removeBannerAds), name: .removeAdsSucceeded, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showLeaderboards), name: .showLeaderboards, object: nil)
         
         // Remove on production
 //        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["ef91b843e3b249284ffb977f58620a83"]
@@ -47,6 +51,8 @@ class GameViewController: UIViewController {
             setupBannerView()
             addBannerViewToView(bannerView)
         }
+        
+        gameCenterManager.authenticateLocalPlayer(in: self)
         
     }
     
@@ -139,6 +145,11 @@ class GameViewController: UIViewController {
             bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
+    
+    @objc
+    private func showLeaderboards() {
+        gameCenterManager.showLeaderboards(in: self)
+    }
 }
 
 extension GameViewController: GADBannerViewDelegate {
@@ -158,5 +169,12 @@ extension GameViewController: GADBannerViewDelegate {
 extension GameViewController: GADInterstitialDelegate {
     func interstitialDidReceiveAd(_ ad: GADInterstitial) {
         ad.present(fromRootViewController: self)
+    }
+}
+
+extension GameViewController: GKGameCenterControllerDelegate {
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        createHapticFeedback(style: .light)
+        gameCenterViewController.dismiss(animated: true, completion: nil)
     }
 }

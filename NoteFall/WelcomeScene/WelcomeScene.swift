@@ -4,6 +4,7 @@ class WelcomeScene: SKScene {
     
     fileprivate var titleLabel: SKLabelNode!
     fileprivate var startButton: ButtonNode!
+    private var leaderboardsButton: ButtonNode!
     fileprivate var settingsButton: ButtonNode!
     fileprivate var backgroundNode: SKSpriteNode!
     
@@ -17,6 +18,8 @@ class WelcomeScene: SKScene {
             startGame()
         } else if settingsButton.contains(touch.location(in: self)) {
             showSettings()
+        } else if leaderboardsButton.contains(touch.location(in: self)) {
+            showLeaderboards()
         }
     }
     
@@ -28,16 +31,20 @@ class WelcomeScene: SKScene {
         titleLabel = childNode(withName: "TitleLabel") as? SKLabelNode
         
         startButton = ButtonNode(withText: Localization.startButtonTitle)
-        startButton.position = CGPoint(x: 0, y: -100)
+        startButton.position = CGPoint(x: 0, y: 0)
+        leaderboardsButton = ButtonNode(withText: Localization.leaderboardsTitle)
+        leaderboardsButton.position = CGPoint(x: 0, y: -160)
         settingsButton = ButtonNode(withText: Localization.settingsButtonTitle)
-        settingsButton.position = CGPoint(x: 0, y: -260)
+        settingsButton.position = CGPoint(x: 0, y: -320)
         
         if !Device.isIpad {
             startButton.setScale(3)
+            leaderboardsButton.setScale(3)
             settingsButton.setScale(3)
         }
             
         addChild(startButton)
+        addChild(leaderboardsButton)
         addChild(settingsButton)
     
         animate(titleLabel)
@@ -51,6 +58,11 @@ class WelcomeScene: SKScene {
         let gameScene = GameScene()
         gameScene.scaleMode = .resizeFill
         view?.presentScene(gameScene)
+    }
+    
+    private func showLeaderboards() {
+        createHapticFeedback(style: .light)
+        NotificationCenter.default.post(name: .showLeaderboards, object: nil)
     }
     
     fileprivate func showSettings() {
