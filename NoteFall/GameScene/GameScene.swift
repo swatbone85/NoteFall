@@ -3,29 +3,33 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    fileprivate var gameOverScene: GameOverScene!
+    private var gameOverScene: GameOverScene!
+    private var welcomeScene: WelcomeScene!
     
-    fileprivate let audioManager = AudioManager.shared
-    fileprivate let gameManager = GameManager.shared
+    private let audioManager = AudioManager.shared
+    private let gameManager = GameManager.shared
     
-    fileprivate var gameStarted = false
+    private var gameStarted = false
     
-    fileprivate var isPlaying = false
+    private var isPlaying = false
     
-    fileprivate let tolerance = 0.95
+    private let tolerance = 0.95
     
-    fileprivate var noteSpeed: CGFloat = 1
-    fileprivate let speedIncrease: CGFloat = 0.5
+    private var noteSpeed: CGFloat = 1
+    private let speedIncrease: CGFloat = 0.5
     
-    fileprivate var numberOfLives = 3
+    private var numberOfLives = 3
     
-    fileprivate var note: Note!
+    private var note: Note!
     
-    fileprivate var lifeNodes = [SKNode]()
+    private var lifeNodes = [SKNode]()
     
-    fileprivate var backgroundNode: SKSpriteNode!
+    private var backgroundNode: SKSpriteNode!
     
-    fileprivate let noteLabel: SKLabelNode = {
+    private var pauseButton: SKSpriteNode!
+    private var exitButton: SKSpriteNode!
+    
+    private let noteLabel: SKLabelNode = {
         let label = SKLabelNode()
         label.fontColor = .orange
         label.fontSize = 48
@@ -33,12 +37,12 @@ class GameScene: SKScene {
         return label
     }()
     
-    fileprivate var count = 4 {
+    private var count = 4 {
         didSet {
             countdownLabel.text = String(count)
         }
     }
-    fileprivate lazy var countdownLabel: SKLabelNode = {
+    private lazy var countdownLabel: SKLabelNode = {
         let label = SKLabelNode()
         label.fontSize = 96
         label.fontName = "HelveticaNeue-Medium"
@@ -46,16 +50,26 @@ class GameScene: SKScene {
         return label
     }()
     
-    fileprivate var score = 0
-    fileprivate var scoreTitle: ScoreLabel!
-    fileprivate let scoreLabel = ScoreLabel(text: "0", fontSize: 36)
+    private var score = 0
+    private var scoreTitle: ScoreLabel!
+    private let scoreLabel = ScoreLabel(text: "0", fontSize: 36)
     
-    fileprivate var highscoreTitle: ScoreLabel!
-    fileprivate let highscoreLabel = ScoreLabel(text: String(UserDefaults.standard.integer(forKey: Defaults.highscore)), fontSize: 36)
+    private var highscoreTitle: ScoreLabel!
+    private let highscoreLabel = ScoreLabel(text: String(UserDefaults.standard.integer(forKey: Defaults.highscore)), fontSize: 36)
     
-    fileprivate var transposition: Transposition!
+    private var transposition: Transposition!
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        if pauseButton.contains(touch.location(in: self)) {
+            didTapPause()
+        } else if exitButton.contains(touch.location(in: self)) {
+            didTapExit()
+        }
+    }
     
     override func didMove(to view: SKView) {
+        createHapticFeedback(style: .light)
         
         transposition = Transposition(rawValue: gameManager.transposition)
         
@@ -68,8 +82,6 @@ class GameScene: SKScene {
         scoreTitle = ScoreLabel(text: Localization.scoreLabel, fontSize: 24)
         highscoreTitle = ScoreLabel(text: Localization.highscoreLabel, fontSize: 24)
         
-        createHapticFeedback(style: .light)
-        
         highscoreTitle.position = CGPoint(x: 70, y: frame.height - 60)
         addChild(highscoreTitle)
         highscoreLabel.position = CGPoint(x: 70, y: frame.height - 110)
@@ -78,6 +90,16 @@ class GameScene: SKScene {
         addChild(scoreTitle)
         scoreLabel.position = CGPoint(x: 70, y: frame.height - 230)
         addChild(scoreLabel)
+        
+        pauseButton = SKSpriteNode(imageNamed: "Pause")
+        pauseButton.position = CGPoint(x: frame.midX, y: 100)
+        pauseButton.alpha = 0
+        addChild(pauseButton)
+        
+        exitButton = SKSpriteNode(imageNamed: "Exit")
+        exitButton.position = CGPoint(x: pauseButton.position.x + pauseButton.size.width + 16, y: pauseButton.position.y)
+        exitButton.alpha = 0
+        addChild(exitButton)
         
         for i in 1...numberOfLives {
             let lifeNode = SKSpriteNode(imageNamed: "Heart")
@@ -108,6 +130,7 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         
         if gameStarted {
+            pauseButton.alpha = 1
             noteLabel.position.y -= noteSpeed
             if audioManager.tracker.amplitude > Double(audioManager.sensitivity!.rawValue) {
                 if isPlaying { return }
@@ -137,7 +160,7 @@ class GameScene: SKScene {
         }
     }
     
-    fileprivate func spawnNote() {
+    private func spawnNote() {
         note = Note.getRandom(withTransposition: Transposition(rawValue: gameManager.transposition))
         let animationDuration: Double = 1.4
         let initialRotation: CGFloat = .pi * 0.9
@@ -152,7 +175,7 @@ class GameScene: SKScene {
         addChild(noteLabel)
     }
     
-    fileprivate func destroy(_ node: SKNode, success: Bool) {
+    private func destroy(_ node: SKNode, success: Bool) {
         
         if let particles = SKEmitterNode(fileNamed: "explosion.sks") {
             particles.position = node.position
@@ -171,7 +194,7 @@ class GameScene: SKScene {
         node.removeAllActions()
     }
     
-    fileprivate func incrementScore(by increment: Int) {
+    private func incrementScore(by increment: Int) {
         score += increment
         if score % 10 == 0 {
             noteSpeed += speedIncrease
@@ -185,7 +208,7 @@ class GameScene: SKScene {
         }
     }
     
-    fileprivate func decreaseLife() {
+    private func decreaseLife() {
         numberOfLives -= 1
         destroy(noteLabel, success: false)
         lifeNodes.last?.removeFromParent()
@@ -193,12 +216,46 @@ class GameScene: SKScene {
         spawnNote()
     }
     
-    fileprivate func startGame() {
+    private func startGame() {
         gameStarted = true
         spawnNote()
     }
     
-    fileprivate func endGame() {
+    private func didTapPause() {
+        isPaused.toggle()
+        
+        createHapticFeedback(style: .light)
+        
+        if isPaused {
+            pauseButton.texture = SKTexture(imageNamed: "Play")
+            exitButton.alpha = 1
+        } else {
+            pauseButton.texture = SKTexture(imageNamed: "Pause")
+            exitButton.alpha = 0
+        }
+    }
+    
+    private func didTapExit() {
+        
+        createHapticFeedback(style: .light)
+        
+        gameStarted = false
+        
+        gameManager.numberOfGames += 1
+        
+        if Device.isIpad {
+            welcomeScene = WelcomeScene(fileNamed: "WelcomeScenePad.sks")
+        } else if Device.hasNotch {
+            welcomeScene = WelcomeScene(fileNamed: "WelcomeSceneNotch.sks")
+        } else {
+            welcomeScene = WelcomeScene(fileNamed: "WelcomeScene.sks")
+        }
+        
+        welcomeScene.scaleMode = .aspectFill
+        view?.presentScene(welcomeScene)
+    }
+    
+    private func endGame() {
         gameStarted = false
         
         createHapticFeedback(style: .heavy)
