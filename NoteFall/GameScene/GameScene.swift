@@ -184,7 +184,6 @@ class GameScene: SKScene {
         
         if success {
             let fileSuffix = String((Int(note.frequency.rounded())))
-            print(fileSuffix)
             backgroundNode.run(SKAction.playSoundFileNamed("success_"+fileSuffix+".mp3", waitForCompletion: false))
         } else {
             audioManager.playSound(.swoosh, fromNode: backgroundNode)
