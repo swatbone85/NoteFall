@@ -9,8 +9,6 @@ class GameCenterManager {
     var gcEnabled = Bool() // Check if the user has Game Center enabled
     var gcDefaultLeaderBoard = String() // Check the default leaderboardID
     
-    private let scoreToSubmit = GameManager.shared.highscore
-    
     func authenticateLocalPlayer(in viewController: UIViewController) {
         let localPlayer: GKLocalPlayer = GKLocalPlayer.local
              
@@ -40,6 +38,7 @@ class GameCenterManager {
     func addToLeaderboard() {
         // Submit score to GC leaderboard
         let bestScoreInt = GKScore(leaderboardIdentifier: LEADERBOARD_ID)
+        let scoreToSubmit = GameManager.shared.highscore
         bestScoreInt.value = Int64(scoreToSubmit)
         GKScore.report([bestScoreInt]) { (error) in
             if error != nil {
