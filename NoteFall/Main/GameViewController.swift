@@ -9,12 +9,12 @@ class GameViewController: UIViewController {
          
     var score = 0
     
-    fileprivate var welcomeScene: SKScene!
+    private var welcomeScene: SKScene!
     
-    fileprivate var bannerView: GADBannerView!
+    private var bannerView: GADBannerView!
     
-    fileprivate let adManager = AdManager.shared
-    fileprivate let audioManager = AudioManager.shared
+    private let adManager = AdManager.shared
+    private let audioManager = AudioManager.shared
     private let gameCenterManager = GameCenterManager.shared
 
     override func viewDidLoad() {
@@ -133,7 +133,7 @@ class GameViewController: UIViewController {
         return true
     }
     
-    fileprivate func addBannerViewToView(_ bannerView: GADBannerView) {
+    private func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         
         guard let view = view else { return }

@@ -203,8 +203,6 @@ class GameScene: SKScene {
         if score > gameManager.highscore {
             gameManager.highscore = score
             highscoreLabel.text = String(gameManager.highscore)
-            UserDefaults.standard.set(gameManager.highscore, forKey: Defaults.highscore)
-            UserDefaults.standard.synchronize()
         }
     }
     

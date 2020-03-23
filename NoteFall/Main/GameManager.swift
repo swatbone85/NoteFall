@@ -16,7 +16,12 @@ class GameManager {
         }
     }
     
-    var highscore = UserDefaults.standard.integer(forKey: Defaults.highscore)
+    var highscore = UserDefaults.standard.integer(forKey: Defaults.highscore) {
+        didSet {
+            UserDefaults.standard.set(highscore, forKey: Defaults.highscore)
+            UserDefaults.standard.synchronize()
+        }
+    }
     
     var numberOfGames = UserDefaults.standard.integer(forKey: Defaults.numberOfGames) {
         didSet {

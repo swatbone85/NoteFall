@@ -2,13 +2,13 @@ import SpriteKit
 
 class WelcomeScene: SKScene {
     
-    fileprivate var titleLabel: SKLabelNode!
-    fileprivate var startButton: ButtonNode!
+    private var titleLabel: SKLabelNode!
+    private var startButton: ButtonNode!
     private var leaderboardsButton: ButtonNode!
-    fileprivate var settingsButton: ButtonNode!
-    fileprivate var backgroundNode: SKSpriteNode!
+    private var settingsButton: ButtonNode!
+    private var backgroundNode: SKSpriteNode!
     
-    fileprivate var settingsScene: SKScene!
+    private var settingsScene: SKScene!
     
     private var iapManager = IAPManager.shared
     
@@ -52,7 +52,7 @@ class WelcomeScene: SKScene {
         AudioManager.shared.playSound(.navigation, fromNode: backgroundNode)
     }
     
-    fileprivate func startGame() {
+    private func startGame() {
         createHapticFeedback(style: .light)
         
         let gameScene = GameScene()
@@ -65,7 +65,7 @@ class WelcomeScene: SKScene {
         NotificationCenter.default.post(name: .showLeaderboards, object: nil)
     }
     
-    fileprivate func showSettings() {
+    private func showSettings() {
         
         if Device.isIpad {
             settingsScene = SettingsScene(fileNamed: "SettingsScenePad.sks")

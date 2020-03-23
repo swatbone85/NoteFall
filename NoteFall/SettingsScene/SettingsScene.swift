@@ -7,16 +7,16 @@ class SettingsScene: SKScene {
     private var transpositionLabel: SKLabelNode!
     private var accidentalsLabel: SKLabelNode!
     private var backgroundNode: SKSpriteNode!
-    fileprivate var microphoneTitle: SKLabelNode!
-    fileprivate var microphoneLabel: SKLabelNode!
+    private var microphoneTitle: SKLabelNode!
+    private var microphoneLabel: SKLabelNode!
     
     private var restorePurchasesButton: SKLabelNode!
     
     private let gameManager = GameManager.shared
     private let iapManager = IAPManager.shared
-    fileprivate var muteButtonNode: SKSpriteNode!
+    private var muteButtonNode: SKSpriteNode!
     
-    fileprivate let audioManager = AudioManager.shared
+    private let audioManager = AudioManager.shared
     
     private var transposition: Transposition!
     
@@ -131,7 +131,7 @@ class SettingsScene: SKScene {
         noAdsButton.removeFromParent()
     }
     
-    fileprivate func goBackToMenu() {
+    private func goBackToMenu() {
         saveSettings()
         
         createHapticFeedback(style: .light)
@@ -153,7 +153,7 @@ class SettingsScene: SKScene {
         }
     }
     
-    fileprivate func changeTransposition() {
+    private func changeTransposition() {
         
         switch transposition {
         case .C:
@@ -172,7 +172,7 @@ class SettingsScene: SKScene {
         createHapticFeedback(style: .light)
     }
     
-    fileprivate func toggleAccidentals() {
+    private func toggleAccidentals() {
         gameManager.useAccidentals.toggle()
         
         switch gameManager.useAccidentals {
@@ -185,7 +185,7 @@ class SettingsScene: SKScene {
         createHapticFeedback(style: .light)
     }
     
-    fileprivate func changeMicrophoneSensitivity() {
+    private func changeMicrophoneSensitivity() {
         switch audioManager.sensitivity {
         case .low:
             audioManager.sensitivity = .medium
@@ -209,7 +209,7 @@ class SettingsScene: SKScene {
         NotificationCenter.default.post(name: .restorePurchasesTapped, object: nil)
     }
     
-    fileprivate func toggleMuted() {
+    private func toggleMuted() {
         AudioManager.shared.isMuted.toggle()
         guard let image = UIImage(named: audioManager.isMuted ? "MuteIcon" : "SoundIcon")?.tinted(with: .darkGray) else { return }
         let texture = SKTexture(image: image)
@@ -217,7 +217,7 @@ class SettingsScene: SKScene {
         createHapticFeedback(style: .light)
     }
     
-    fileprivate func saveSettings() {
+    private func saveSettings() {
         gameManager.transposition = transposition.rawValue
         UserDefaults.standard.synchronize()
     }

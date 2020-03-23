@@ -2,7 +2,6 @@ import SpriteKit
 
 class GameOverScene: SKScene {
     
-    private let gameManager = GameManager.shared
     private let gameCenterManager = GameCenterManager.shared
     private let adManager = AdManager.shared
     

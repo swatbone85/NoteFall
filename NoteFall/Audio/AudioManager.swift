@@ -18,7 +18,7 @@ class AudioManager {
     
     private var mixer: AKMixer!
     
-    fileprivate var backgroundMusicPlayer: AKPlayer!
+    private var backgroundMusicPlayer: AKPlayer!
     
     var isMuted = UserDefaults.standard.bool(forKey: Defaults.isMuted) {
         didSet {
