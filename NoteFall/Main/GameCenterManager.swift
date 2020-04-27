@@ -6,29 +6,14 @@ class GameCenterManager {
     
     private let LEADERBOARD_ID = "com.leaderboard.notefall"
     
-    var gcEnabled = Bool() // Check if the user has Game Center enabled
-    var gcDefaultLeaderBoard = String() // Check the default leaderboardID
+    private let localPlayer = GKLocalPlayer.local
     
     func authenticateLocalPlayer(in viewController: UIViewController) {
-        let localPlayer: GKLocalPlayer = GKLocalPlayer.local
              
         localPlayer.authenticateHandler = {(ViewController, error) -> Void in
             if((ViewController) != nil) {
-                // 1. Show login if player is not logged in
                 viewController.present(ViewController!, animated: true, completion: nil)
-            } else if (localPlayer.isAuthenticated) {
-                // 2. Player is already authenticated & logged in, load game center
-                self.gcEnabled = true
-                     
-                // Get the default leaderboard ID
-                localPlayer.loadDefaultLeaderboardIdentifier(completionHandler: { (leaderboardIdentifer, error) in
-                    if error != nil { print(error)
-                    } else { self.gcDefaultLeaderBoard = leaderboardIdentifer! }
-                })
-                 
             } else {
-                // 3. Game center is not enabled on the users device
-                self.gcEnabled = false
                 print("Local player could not be authenticated!")
                 print(error)
             }
@@ -36,7 +21,6 @@ class GameCenterManager {
     }
     
     func addToLeaderboard() {
-        // Submit score to GC leaderboard
         let bestScoreInt = GKScore(leaderboardIdentifier: LEADERBOARD_ID)
         let scoreToSubmit = GameManager.shared.highscore
         bestScoreInt.value = Int64(scoreToSubmit)

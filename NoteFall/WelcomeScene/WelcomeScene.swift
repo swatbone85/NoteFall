@@ -8,6 +8,8 @@ class WelcomeScene: SKScene {
     private var settingsButton: ButtonNode!
     private var backgroundNode: SKSpriteNode!
     
+    private var infoButton: ButtonNode!
+    
     private var settingsScene: SKScene!
     
     private var iapManager = IAPManager.shared
@@ -20,6 +22,8 @@ class WelcomeScene: SKScene {
             showSettings()
         } else if leaderboardsButton.contains(touch.location(in: self)) {
             showLeaderboards()
+        } else if infoButton.contains(touch.location(in: self)) {
+            showInfoScreen()
         }
     }
     
@@ -36,16 +40,20 @@ class WelcomeScene: SKScene {
         leaderboardsButton.position = CGPoint(x: 0, y: -160)
         settingsButton = ButtonNode(withText: Localization.settingsButtonTitle)
         settingsButton.position = CGPoint(x: 0, y: -320)
+        infoButton = ButtonNode(withText: Localization.info)
+        infoButton.position = CGPoint(x: 0, y: -480)
         
         if !Device.isIpad {
             startButton.setScale(3)
             leaderboardsButton.setScale(3)
             settingsButton.setScale(3)
+            infoButton.setScale(3)
         }
             
         addChild(startButton)
         addChild(leaderboardsButton)
         addChild(settingsButton)
+        addChild(infoButton)
     
         animate(titleLabel)
         
@@ -63,6 +71,10 @@ class WelcomeScene: SKScene {
     private func showLeaderboards() {
         createHapticFeedback(style: .light)
         NotificationCenter.default.post(name: .showLeaderboards, object: nil)
+    }
+    
+    private func showInfoScreen() {
+        createHapticFeedback(style: .light)
     }
     
     private func showSettings() {
