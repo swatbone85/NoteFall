@@ -11,6 +11,7 @@ class WelcomeScene: SKScene {
     private var infoButton: ButtonNode!
     
     private var settingsScene: SKScene!
+    private var infoScene: SKScene!
     
     private var iapManager = IAPManager.shared
     
@@ -75,6 +76,15 @@ class WelcomeScene: SKScene {
     
     private func showInfoScreen() {
         createHapticFeedback(style: .light)
+        
+        if Device.isIpad {
+            infoScene = InfoScene(fileNamed: "InfoScene.sks")
+        } else if Device.hasNotch {
+            infoScene = InfoScene(fileNamed: "InfoSceneNotch.sks")
+        }
+        
+        infoScene.scaleMode = .aspectFill
+        view?.presentScene(infoScene)
     }
     
     private func showSettings() {
