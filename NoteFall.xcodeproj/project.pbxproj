@@ -58,6 +58,9 @@
 		C2939C282456A1E60006FBD7 /* InfoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2939C272456A1E60006FBD7 /* InfoScene.swift */; };
 		C2939C2A2456A2740006FBD7 /* InfoScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2939C292456A2740006FBD7 /* InfoScene.sks */; };
 		C2939C2C2456A4030006FBD7 /* InfoSceneNotch.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2939C2B2456A4030006FBD7 /* InfoSceneNotch.sks */; };
+		C2939C2E2456C09C0006FBD7 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2939C2D2456C09C0006FBD7 /* LabelNode.swift */; };
+		C2939C302456D09F0006FBD7 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2939C2F2456D09F0006FBD7 /* InfoView.swift */; };
+		C2939C322456D3190006FBD7 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2939C312456D3190006FBD7 /* Label.swift */; };
 		C2A3B94524117F7B00FA900F /* IAP_ProductIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2A3B94424117F7B00FA900F /* IAP_ProductIDs.plist */; };
 		C2A3B94724117FBC00FA900F /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A3B94624117FBC00FA900F /* IAPManager.swift */; };
 		C2A3B94924120EDA00FA900F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A3B94824120EDA00FA900F /* StoreKit.framework */; };
@@ -139,6 +142,9 @@
 		C2939C272456A1E60006FBD7 /* InfoScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoScene.swift; sourceTree = "<group>"; };
 		C2939C292456A2740006FBD7 /* InfoScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = InfoScene.sks; sourceTree = "<group>"; };
 		C2939C2B2456A4030006FBD7 /* InfoSceneNotch.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = InfoSceneNotch.sks; sourceTree = "<group>"; };
+		C2939C2D2456C09C0006FBD7 /* LabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNode.swift; sourceTree = "<group>"; };
+		C2939C2F2456D09F0006FBD7 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		C2939C312456D3190006FBD7 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		C2A3B94424117F7B00FA900F /* IAP_ProductIDs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = IAP_ProductIDs.plist; sourceTree = "<group>"; };
 		C2A3B94624117FBC00FA900F /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		C2A3B94824120EDA00FA900F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -348,6 +354,7 @@
 				C2939C292456A2740006FBD7 /* InfoScene.sks */,
 				C2939C2B2456A4030006FBD7 /* InfoSceneNotch.sks */,
 				C2939C272456A1E60006FBD7 /* InfoScene.swift */,
+				C2939C2F2456D09F0006FBD7 /* InfoView.swift */,
 			);
 			path = InfoScene;
 			sourceTree = "<group>";
@@ -367,6 +374,8 @@
 			isa = PBXGroup;
 			children = (
 				C2838CB023A91D440014FE0C /* ScoreLabel.swift */,
+				C2939C2D2456C09C0006FBD7 /* LabelNode.swift */,
+				C2939C312456D3190006FBD7 /* Label.swift */,
 				C2F6048323F973D900231F6E /* ButtonNode.swift */,
 			);
 			path = "UI Elements";
@@ -539,9 +548,11 @@
 			files = (
 				C2A3B94724117FBC00FA900F /* IAPManager.swift in Sources */,
 				C2AAB24C2418A0A100F7ECF3 /* MicrophoneSensitivity.swift in Sources */,
+				C2939C2E2456C09C0006FBD7 /* LabelNode.swift in Sources */,
 				C223B4DF23A001D6009ADD1F /* GameScene.swift in Sources */,
 				C246FDAB23FA7DE400A051E8 /* Localization.swift in Sources */,
 				C2AAB2502418A0E400F7ECF3 /* GameManager.swift in Sources */,
+				C2939C302456D09F0006FBD7 /* InfoView.swift in Sources */,
 				C23E629624029D090098186D /* AdManager.swift in Sources */,
 				C2F6048423F973D900231F6E /* ButtonNode.swift in Sources */,
 				C223B4E123A001D6009ADD1F /* GameViewController.swift in Sources */,
@@ -553,6 +564,7 @@
 				C25972E223A14BA100A7AB0D /* GameOverScene.swift in Sources */,
 				C2F1153023B9F5B800F520AB /* SettingsScene.swift in Sources */,
 				C223B4D923A001D6009ADD1F /* AppDelegate.swift in Sources */,
+				C2939C322456D3190006FBD7 /* Label.swift in Sources */,
 				C20D1BC423ABF74800C994E8 /* WelcomeScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

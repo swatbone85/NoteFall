@@ -26,4 +26,5 @@ struct Localization {
     static let purchasesRestoredText = NSLocalizedString("All previous purchases have been restored.", comment: "Body for Purchases restored successfully dialogue box")
     static let leaderboardsTitle = NSLocalizedString("Leaderboards", comment: "Button title for Game Center leaderboards")
     static let info = NSLocalizedString("Info", comment: "Title for info button")
+    static let welcomeToNotefall = NSLocalizedString("Welcome to NoteFall!", comment: "Welcome label in InfoScene")
 }
