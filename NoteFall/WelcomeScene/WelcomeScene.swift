@@ -2,12 +2,18 @@ import SpriteKit
 
 class WelcomeScene: SKScene {
     
-    fileprivate var titleLabel: SKLabelNode!
-    fileprivate var startButton: ButtonNode!
-    fileprivate var settingsButton: ButtonNode!
-    fileprivate var backgroundNode: SKSpriteNode!
+    private var titleLabel: SKLabelNode!
+    private var startButton: ButtonNode!
+    private var leaderboardsButton: ButtonNode!
+    private var settingsButton: ButtonNode!
+    private var backgroundNode: SKSpriteNode!
     
-    fileprivate var settingsScene: SKScene!
+    private var infoButton: ButtonNode!
+    
+    private var settingsScene: SKScene!
+    private var infoScene: SKScene!
+    
+    private var iapManager = IAPManager.shared
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
@@ -15,6 +21,10 @@ class WelcomeScene: SKScene {
             startGame()
         } else if settingsButton.contains(touch.location(in: self)) {
             showSettings()
+        } else if leaderboardsButton.contains(touch.location(in: self)) {
+            showLeaderboards()
+        } else if infoButton.contains(touch.location(in: self)) {
+            showInfoScreen()
         }
     }
     
@@ -26,24 +36,32 @@ class WelcomeScene: SKScene {
         titleLabel = childNode(withName: "TitleLabel") as? SKLabelNode
         
         startButton = ButtonNode(withText: Localization.startButtonTitle)
-        startButton.position = CGPoint(x: 0, y: -100)
+        startButton.position = CGPoint(x: 0, y: 0)
+        leaderboardsButton = ButtonNode(withText: Localization.leaderboardsTitle)
+        leaderboardsButton.position = CGPoint(x: 0, y: -160)
         settingsButton = ButtonNode(withText: Localization.settingsButtonTitle)
-        settingsButton.position = CGPoint(x: 0, y: -260)
+        settingsButton.position = CGPoint(x: 0, y: -320)
+        infoButton = ButtonNode(withText: Localization.info)
+        infoButton.position = CGPoint(x: 0, y: -480)
         
         if !Device.isIpad {
             startButton.setScale(3)
+            leaderboardsButton.setScale(3)
             settingsButton.setScale(3)
+            infoButton.setScale(3)
         }
             
         addChild(startButton)
+        addChild(leaderboardsButton)
         addChild(settingsButton)
+        addChild(infoButton)
     
         animate(titleLabel)
         
         AudioManager.shared.playSound(.navigation, fromNode: backgroundNode)
     }
     
-    fileprivate func startGame() {
+    private func startGame() {
         createHapticFeedback(style: .light)
         
         let gameScene = GameScene()
@@ -51,7 +69,25 @@ class WelcomeScene: SKScene {
         view?.presentScene(gameScene)
     }
     
-    fileprivate func showSettings() {
+    private func showLeaderboards() {
+        createHapticFeedback(style: .light)
+        NotificationCenter.default.post(name: .showLeaderboards, object: nil)
+    }
+    
+    private func showInfoScreen() {
+        createHapticFeedback(style: .light)
+        
+        if Device.isIpad {
+            infoScene = InfoScene(fileNamed: "InfoScene.sks")
+        } else if Device.hasNotch {
+            infoScene = InfoScene(fileNamed: "InfoSceneNotch.sks")
+        }
+        
+        infoScene.scaleMode = .aspectFill
+        view?.presentScene(infoScene)
+    }
+    
+    private func showSettings() {
         
         if Device.isIpad {
             settingsScene = SettingsScene(fileNamed: "SettingsScenePad.sks")

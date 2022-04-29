@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         UIApplication.shared.isIdleTimerDisabled = true
+        
+        if !IAPManager.shared.removeAdsPurchased {
+            GADMobileAds.sharedInstance().start()
+        }
+        
+        IAPManager.shared.fetchProducts()
         return true
     }
 

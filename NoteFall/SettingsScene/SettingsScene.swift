@@ -2,29 +2,32 @@ import SpriteKit
 
 class SettingsScene: SKScene {
     
-    fileprivate var backButton: ButtonNode!
+    private var backButton: ButtonNode!
+    private var noAdsButton: ButtonNode!
+    private var transpositionLabel: SKLabelNode!
+    private var accidentalsLabel: SKLabelNode!
+    private var backgroundNode: SKSpriteNode!
+    private var microphoneTitle: SKLabelNode!
+    private var microphoneLabel: SKLabelNode!
     
-    fileprivate var transpositionTitle: SKLabelNode!
-    fileprivate var transpositionLabel: SKLabelNode!
+    private var restorePurchasesButton: SKLabelNode!
     
-    fileprivate var accidentalsTitle: SKLabelNode!
-    fileprivate var accidentalsLabel: SKLabelNode!
+    private let gameManager = GameManager.shared
+    private let iapManager = IAPManager.shared
+    private var muteButtonNode: SKSpriteNode!
     
-    fileprivate var microphoneTitle: SKLabelNode!
-    fileprivate var microphoneLabel: SKLabelNode!
+    private let audioManager = AudioManager.shared
     
-    fileprivate var backgroundNode: SKSpriteNode!
+    private var transposition: Transposition!
     
-    fileprivate var muteButtonNode: SKSpriteNode!
+    private var welcomeScene: SKScene!
     
-    fileprivate let gameManager = GameManager.shared
-    fileprivate let audioManager = AudioManager.shared
-    
-    fileprivate var transposition: Transposition!
-    
-    fileprivate var welcomeScene: SKScene!
+    private var transpositionTitle: SKLabelNode!
+    private var accidentalsTitle: SKLabelNode!
     
     override func didMove(to view: SKView) {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(removeNoAdsButton), name: .removeAdsSucceeded, object: nil)
         
         transposition = Transposition(rawValue: gameManager.transposition)
         
@@ -32,6 +35,9 @@ class SettingsScene: SKScene {
         let texture = SKTexture(image: image)
         muteButtonNode = childNode(withName: "MuteButton") as? SKSpriteNode
         muteButtonNode.texture = texture
+        
+        restorePurchasesButton = childNode(withName: "RestorePurchasesLabel") as? SKLabelNode
+        restorePurchasesButton.text = Localization.restorePurchases
         
         backgroundNode = childNode(withName: "Background") as? SKSpriteNode
         backgroundNode.zPosition = Layer.background
@@ -50,6 +56,9 @@ class SettingsScene: SKScene {
         microphoneTitle.text = Localization.microphoneSensitivityTitle
         microphoneLabel = childNode(withName: "MicrophoneLabel") as? SKLabelNode
         
+        noAdsButton = ButtonNode(withText: Localization.removeAds)
+        noAdsButton.position = CGPoint(x: 0, y: -460)
+        
         switch audioManager.sensitivity {
         case .low:
             microphoneLabel.text = Localization.microphoneSensitivityLow
@@ -66,9 +75,20 @@ class SettingsScene: SKScene {
         
         if !Device.isIpad {
             backButton.setScale(3)
+            noAdsButton.setScale(3)
         }
         
         addChild(backButton)
+        
+        if !iapManager.removeAdsPurchased {
+            addChild(noAdsButton)
+        }
+        
+        transpositionLabel = childNode(withName: "TranspositionLabel") as? SKLabelNode
+        transpositionLabel.text = gameManager.transposition
+        
+        accidentalsLabel = childNode(withName: "AccidentalsLabel") as? SKLabelNode
+        accidentalsLabel.text = Localization.useAccidentalsLabel
         
         switch gameManager.useAccidentals {
         case true:
@@ -92,16 +112,26 @@ class SettingsScene: SKScene {
         } else if accidentalsLabel.contains(touch.location(in: self)) {
             audioManager.playSound(.buttonClick, fromNode: accidentalsLabel)
             toggleAccidentals()
+        } else if noAdsButton.contains(touch.location(in: self)) {
+            audioManager.playSound(.buttonClick, fromNode: noAdsButton)
+            didTapNoAdsButton()
         } else if microphoneLabel.contains(touch.location(in: self)) {
             audioManager.playSound(.buttonClick, fromNode: microphoneLabel)
             changeMicrophoneSensitivity()
         } else if muteButtonNode.contains(touch.location(in: self)) {
             toggleMuted()
             audioManager.playSound(.buttonClick, fromNode: muteButtonNode)
+        } else if restorePurchasesButton.contains(touch.location(in: self)) {
+            didTapRestorePurchases()
         }
     }
     
-    fileprivate func goBackToMenu() {
+    @objc
+    private func removeNoAdsButton() {
+        noAdsButton.removeFromParent()
+    }
+    
+    private func goBackToMenu() {
         saveSettings()
         
         createHapticFeedback(style: .light)
@@ -117,7 +147,13 @@ class SettingsScene: SKScene {
         view?.presentScene(welcomeScene)
     }
     
-    fileprivate func changeTransposition() {
+    private func didTapNoAdsButton() {
+        if iapManager.canMakePayments {
+            iapManager.purchaseNoAds()
+        }
+    }
+    
+    private func changeTransposition() {
         
         switch transposition {
         case .C:
@@ -136,7 +172,7 @@ class SettingsScene: SKScene {
         createHapticFeedback(style: .light)
     }
     
-    fileprivate func toggleAccidentals() {
+    private func toggleAccidentals() {
         gameManager.useAccidentals.toggle()
         
         switch gameManager.useAccidentals {
@@ -149,7 +185,7 @@ class SettingsScene: SKScene {
         createHapticFeedback(style: .light)
     }
     
-    fileprivate func changeMicrophoneSensitivity() {
+    private func changeMicrophoneSensitivity() {
         switch audioManager.sensitivity {
         case .low:
             audioManager.sensitivity = .medium
@@ -167,7 +203,13 @@ class SettingsScene: SKScene {
         createHapticFeedback(style: .light)
     }
     
-    fileprivate func toggleMuted() {
+    private func didTapRestorePurchases() {
+        createHapticFeedback(style: .light)
+        
+        NotificationCenter.default.post(name: .restorePurchasesTapped, object: nil)
+    }
+    
+    private func toggleMuted() {
         AudioManager.shared.isMuted.toggle()
         guard let image = UIImage(named: audioManager.isMuted ? "MuteIcon" : "SoundIcon")?.tinted(with: .darkGray) else { return }
         let texture = SKTexture(image: image)
@@ -175,7 +217,7 @@ class SettingsScene: SKScene {
         createHapticFeedback(style: .light)
     }
     
-    fileprivate func saveSettings() {
+    private func saveSettings() {
         gameManager.transposition = transposition.rawValue
         UserDefaults.standard.synchronize()
     }

@@ -1,11 +1,16 @@
 import SpriteKit
+
 class GameOverScene: SKScene {
     
-    private let gameManager = GameManager.shared
+    private let gameCenterManager = GameCenterManager.shared
+    private let adManager = AdManager.shared
     
     private var gameOverLabel: SKLabelNode!
     private var scoreLabel: SKLabelNode!
     private var highscoreLabel: SKLabelNode!
+    
+    private var scoreTitleLabel: SKLabelNode!
+    private var highscoreTitleLabel: SKLabelNode!
     
     private var tryAgainButton: ButtonNode!
     private var backToMenuButton: ButtonNode!
@@ -33,7 +38,7 @@ class GameOverScene: SKScene {
             } else if Device.hasNotch {
                 welcomeScene = WelcomeScene(fileNamed: "WelcomeSceneNotch.sks")
             } else {
-            welcomeScene = WelcomeScene(fileNamed: "WelcomeScene.sks")
+                welcomeScene = WelcomeScene(fileNamed: "WelcomeScene.sks")
             }
             welcomeScene?.scaleMode = .aspectFill
             view?.presentScene(welcomeScene)
@@ -41,6 +46,9 @@ class GameOverScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        
+        adManager.loadAndPresentInterstitial()
+        gameCenterManager.addToLeaderboard()
         
         gameOverLabel = childNode(withName: "GameOverLabel") as? SKLabelNode
         gameOverLabel.text = Localization.gameOverTitle
@@ -50,11 +58,15 @@ class GameOverScene: SKScene {
         backgroundNode.zPosition = Layer.background
         
         scoreLabel = childNode(withName: "ScoreLabel") as? SKLabelNode
-        scoreLabel.text = Localization.scoreLabel
         scoreLabel.text = String(score)
         
+        scoreTitleLabel = childNode(withName: "ScoreTitleLabel") as? SKLabelNode
+        scoreTitleLabel.text = Localization.scoreLabel
+        
+        highscoreTitleLabel = childNode(withName: "HighscoreTitleLabel") as? SKLabelNode
+        highscoreTitleLabel.text = Localization.highscoreLabel
+        
         highscoreLabel = childNode(withName: "HighscoreLabel") as? SKLabelNode
-        highscoreLabel.text = Localization.highscoreLabel
         highscoreLabel.text = String(GameManager.shared.highscore)
         
         tryAgainButton = ButtonNode(withText: Localization.tryAgainButtonTitle)
@@ -64,7 +76,7 @@ class GameOverScene: SKScene {
         backToMenuButton.position = CGPoint(x: 0, y: -260)
         
         if !Device.isIpad {
-           tryAgainButton.setScale(3)
+            tryAgainButton.setScale(3)
             backToMenuButton.setScale(3)
         }
         
